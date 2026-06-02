@@ -4,6 +4,7 @@ import babel from "@rolldown/plugin-babel";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/Ceylan-Academic/",
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   server: { port: 3000 },
 });
