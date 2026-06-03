@@ -1,11 +1,16 @@
-
-
-
+import Service from "./section-1/Service";
 
 const Main = () => {
   return (
-    <div>Main</div>
-  )
-}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--gap-md)",
+      }}>
+      <Service />
+    </div>
+  );
+};
 
-export default Main
+export default Main;

@@ -36,6 +36,9 @@
   }
   &_nav {
     @include v.flex-gap-sm;
+    @media (max-width: v.$width-md) {
+      display: none;
+    }
 
     li {
       overflow: hidden;
@@ -72,4 +75,5 @@
       }
     }
   }
+
 }

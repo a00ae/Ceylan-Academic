@@ -1,0 +1,55 @@
+@use "../../../../styles/variables" as service;
+.service {
+  @include service.container-padding-box;
+
+  &_container {
+    @include service.flex-gap-xxl;
+    
+    // 1. نضمن أن العناصر داخل الحاوية تتمدد لتأخذ نفس الطول الكامل للحاوية
+    align-items: stretch; 
+  }
+
+  &_text-desc {
+    width: 40%;
+    @include service.flex-gap-column-lg;
+
+    h2 {
+      @include service.heading-title-size;
+      margin-bottom: var(--margin-md);
+    }
+    p {
+      width: 90%;
+      font-size: var(--font-size-md);
+    }
+  }
+
+  &_img {
+    width: 60%;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    justify-content: center;
+    max-height: 400px;
+    
+    // 2. لمنع أي محتوى داخلي (الصورة) من تمديد الحاوية وإجبارها على الالتزام بالحدود
+    overflow: hidden; 
+
+    img {
+      // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
+      width: 100%;
+      height: 100%; 
+      
+      // 4. cover تضمن تغطية المساحة بالكامل بدون تشويه الأبعاد (تُقص الأطراف الزائدة تلقائيًا)
+      object-fit: contain; 
+      
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+
+      /* منع تحديد الصورة أو النصوص المحيطة بها */
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE/Edge القديم */
+    }
+  }
+}
