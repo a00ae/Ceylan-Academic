@@ -5,7 +5,7 @@ import Loader from "./components/ui/Button/loader/Loader";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("Error")
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     const loadingFunction = async () => {
@@ -14,15 +14,16 @@ function App() {
         await new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100));
         setLoading(false);
       } catch (error) {
-        setLoading(false)
+        setLoading(false);
+        setMessage("erorr 404");
         throw new Error(message, { cause: error });
       }
     };
-    window.addEventListener("load", loadingFunction)
-    return ()=> window.removeEventListener("load", loadingFunction)
+    window.addEventListener("load", loadingFunction);
+    return () => window.removeEventListener("load", loadingFunction);
   }, [message]);
 
-  if(loading) return <Loader/>
+  if (loading) return <Loader />;
 
   return (
     <>
