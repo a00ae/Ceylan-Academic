@@ -1,0 +1,43 @@
+.btn {
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-family: Inter, "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.default {
+  background-color: var(--btn-color);
+  color: #ffffff;
+  &:hover {
+    background-color: var(--btn-color-hover);
+  }
+}
+
+// الأشكال (Variants)
+.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-secondary);
+  color: #ffffff;
+  &:hover {
+    background-color: var(--color-secondary-hover);
+  }
+}
+
+// الأحجام (Sizes)
+.small {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.medium {
+  padding: 10px 20px;
+  font-size: 16px;
+}
