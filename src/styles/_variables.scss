@@ -96,6 +96,7 @@ $width-xxl: 1400px;
   padding-right: var(--padding-md);
   padding-top: var(--padding-xxl);
   padding-bottom: var(--padding-xl);
+  width: 100%;
 
   @media (max-width: $width-md) {
     padding-left: var(--padding-xs);

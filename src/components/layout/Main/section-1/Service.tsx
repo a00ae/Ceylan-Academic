@@ -10,8 +10,9 @@ const Service = () => {
         <div className={styles["service_text-desc"]}>
           <h2>Arapça öğrenin</h2>
           <p>
-            Şimdi kayıt olun ve her seviyedeki Arapça dil kurslarında %50
-            indirimden yararlanın.
+            - Şimdi kayıt olun ve her seviyedeki Arapça dil kurslarında %50
+            indirimden yararlanın. <br /> <br />- Küresel iletişim ve
+            kariyerinizde ilerlemek için Arapçanın temellerini öğrenin.
           </p>
           <a href="#">
             <Button style={{ display: "flex", alignItems: "center" }}>

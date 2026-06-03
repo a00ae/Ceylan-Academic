@@ -1,6 +1,7 @@
 @use "../../../../styles/variables" as service;
 .service {
   @include service.container-padding-box;
+  width: 100%;
 
   &_container {
     @include service.flex-gap-xxl;
@@ -29,15 +30,17 @@
     border-radius: var(--border-radius-md);
     display: flex;
     justify-content: center;
-    max-height: 400px;
+    align-items: flex-end;
+    max-height: 550px;
     
     // 2. لمنع أي محتوى داخلي (الصورة) من تمديد الحاوية وإجبارها على الالتزام بالحدود
     overflow: hidden; 
 
     img {
       // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
-      width: 100%;
+      width: 50%;
       height: 100%; 
+
       
       // 4. cover تضمن تغطية المساحة بالكامل بدون تشويه الأبعاد (تُقص الأطراف الزائدة تلقائيًا)
       object-fit: contain; 
