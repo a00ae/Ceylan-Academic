@@ -1,4 +1,5 @@
 @use "../../../styles/variables" as v;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 
 .header {
   @include v.flex-space-between;
@@ -8,19 +9,28 @@
   margin: var(--margin-sm) auto;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow-header);
+  font-family: 'Cinzel', serif;
   // تنسيقات الهيدر الخاصة بك (مثل display: flex; خلفية داكنة... إلخ)
 
   &_icon {
     display: flex;
     align-items: center;
+    position: relative;
+    cursor: pointer;
+    .edction {
+    color: var(--btn-color);
+    position: absolute;
+    top: -7px;
+    left: 20px;
+    }
 
     .mainLogo {
-      width: 220px;
+      width: 170px;
       height: auto;
       overflow: hidden;
 
       g {
-        fill: var(--text-color);
+        fill: #e8eaf6;
       }
     }
   }
@@ -48,7 +58,7 @@
         top: 100%; // يضعه أسفل النص الأصلي تماماً
         left: 0;
         width: 100%;
-        transition: var(--transition-main);
+        transition: transform var(--transition-main);
         color: var(--btn-color);
       }
 

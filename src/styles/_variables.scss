@@ -104,7 +104,7 @@ $width-xxl: 1400px;
 
 @mixin header-title {
     font-size: calc(var(--font-size-md) - 2px);
-    font-weight: var(--font-weight-main);
+    font-weight: var(--font-weight-bold);
     color: var(--text-color-grey);
 }
 
