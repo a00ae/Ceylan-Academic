@@ -23,10 +23,11 @@ function App() {
     return () => window.removeEventListener("load", loadingFunction);
   }, [message]);
 
-  if (loading) return <Loader />;
+  if (loading) return <Loader loading={loading}/>;
 
   return (
     <>
+      <Loader loading={loading}/>
       <Header />
       <Main />
     </>
