@@ -2,57 +2,74 @@
 .service {
   @include service.container-padding-box;
   width: 100%;
+  background-color: #fff;
 
   &_container {
-    @include service.flex-gap-xxl;
-    
+    @include service.flex-gap-column-md;
     // 1. نضمن أن العناصر داخل الحاوية تتمدد لتأخذ نفس الطول الكامل للحاوية
-    align-items: stretch; 
+    align-items: stretch;
   }
 
   &_text-desc {
-    width: 40%;
-    @include service.flex-gap-column-lg;
+    @include service.flex-space-between;
+    @media (max-width: service.$width-xl) {
+      flex-direction: column;
+      align-items: start;
+      gap: var(--gap-md);
+    }
 
     h2 {
       @include service.heading-title-size;
       margin-bottom: var(--margin-md);
+      text-transform: capitalize;
+      font-weight: 550;
+      color: var(--heading-color);
     }
     p {
-      width: 90%;
-      font-size: var(--font-size-md);
+      width: 30%;
+      @include service.decs-text;
+      span {
+        color: var(--border-color);
+      }
+      @media (max-width: service.$width-xl) {
+        width: 70%;
+      }
+      @media (max-width: service.$width-sm) {
+        width: 100%;
+      }
     }
   }
 
   &_img {
-    width: 60%;
     position: relative;
     border-radius: var(--border-radius-md);
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    max-height: 550px;
-    
+    justify-content: space-between;
+    align-items: stretch;
+
     // 2. لمنع أي محتوى داخلي (الصورة) من تمديد الحاوية وإجبارها على الالتزام بالحدود
-    overflow: hidden; 
 
-    img {
-      // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
-      width: 50%;
-      height: 100%; 
+    &_box-img {
+      width: 80%;
+      overflow: hidden;
+      max-height: 610px;
 
-      
-      // 4. cover تضمن تغطية المساحة بالكامل بدون تشويه الأبعاد (تُقص الأطراف الزائدة تلقائيًا)
-      object-fit: contain; 
-      
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
+      img {
+        // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
+        width: 100%;
 
-      /* منع تحديد الصورة أو النصوص المحيطة بها */
-      -webkit-user-select: none; /* Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE/Edge القديم */
+        // 4. cover تضمن تغطية المساحة بالكامل بدون تشويه الأبعاد (تُقص الأطراف الزائدة تلقائيًا)
+        object-fit: contain;
+
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
+
+        /* منع تحديد الصورة أو النصوص المحيطة بها */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE/Edge القديم */
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import Service from "./section-1/Service";
+import Service from "./section-1/Service.tsx";
 
 const Main = () => {
   return (

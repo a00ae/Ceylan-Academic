@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/layout/Header/Header";
 import Main from "./components/layout/Main/Main";
-import Loader from "./components/ui/Button/loader/Loader";
+import Loader from "./components/ui/Loader/Loader";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,7 +23,6 @@ function App() {
     return () => window.removeEventListener("load", loadingFunction);
   }, [message]);
 
-  if (loading) return <Loader loading={loading}/>;
 
   return (
     <>
