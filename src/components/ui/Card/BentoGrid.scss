@@ -1,0 +1,5 @@
+.bento-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: var(--gap-sm);
+}

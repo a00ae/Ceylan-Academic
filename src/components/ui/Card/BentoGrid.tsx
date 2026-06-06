@@ -1,5 +1,5 @@
 import { gridData } from '../../layout/Main/section-1/gridData.ts';
-// import './BentoGrid.scss';
+import './BentoGrid.scss';
 
 export function BentoGrid() {
   return (

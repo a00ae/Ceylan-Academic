@@ -71,5 +71,15 @@
         -ms-user-select: none; /* IE/Edge القديم */
       }
     }
+    &_specifications {
+      display: grid;
+      grid-template-columns: 1;
+      gap: var(--gap-md);
+      .service_specifications-desc {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-main);
+        color: var(--border-color);
+      }
+    }
   }
 }

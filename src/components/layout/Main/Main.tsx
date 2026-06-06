@@ -1,4 +1,5 @@
 import Service from "./section-1/Service.tsx";
+import { memo } from "react";
 
 const Main = () => {
   return (
@@ -13,4 +14,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default memo(Main);

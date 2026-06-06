@@ -19,11 +19,11 @@ const Service = () => {
           <div className={styles["service_img_box-img"]}>
             <img draggable={false} src={ArbiacLanguage} alt="Arapça öğrenin" />
           </div>
-          <div className={styles["service_specifications"]}>
-            <p>
+          <div className={styles["service_img_specifications"]}>
+            <div className={styles["service_specifications-desc"]}>
               Küresel iletişim ve kariyerinizde ilerlemek için Arapçanın
               temellerini öğrenin.
-            </p>
+            </div>
             <BentoGrid />
             <a href="#">
               <Button style={{ display: "flex", alignItems: "center" }}>
