@@ -1,7 +1,7 @@
 import { RiArrowRightUpLine } from '@remixicon/react';
 import { gridData } from '../../layout/Main/section-1/gridData.ts';
 import './BentoGrid.scss';
-import Button from '../Button/Button.tsx';
+
 
 export function BentoGrid() {
   return (
