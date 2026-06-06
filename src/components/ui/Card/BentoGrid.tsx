@@ -1,5 +1,7 @@
+import { RiArrowRightUpLine } from '@remixicon/react';
 import { gridData } from '../../layout/Main/section-1/gridData.ts';
 import './BentoGrid.scss';
+import Button from '../Button/Button.tsx';
 
 export function BentoGrid() {
   return (
@@ -20,7 +22,7 @@ export function BentoGrid() {
           {card.type === 'services' && (
             <>
               <ul className="tags-list">
-                {card.tags?.map((tag, index) => <li key={index}>{tag}</li>)}
+                {card.tags?.map((tag, index) => <li key={index}>{tag} -</li>)}
               </ul>
               <span className="footer-text">{card.footer}</span>
             </>
@@ -37,10 +39,14 @@ export function BentoGrid() {
           {/* كارت التوفر */}
           {card.type === 'availability' && (
             <>
-              <h3>{card.title}</h3>
-              <span className="spots-badge">{card.spots}</span>
+            <a href="#">
+              <span>availability</span>
+              <RiArrowRightUpLine/>
+
+            </a>
             </>
           )}
+          
 
         </div>
       ))}

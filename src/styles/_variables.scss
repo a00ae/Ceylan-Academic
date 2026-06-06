@@ -1,5 +1,5 @@
 :root {
-    // default
+  // default
   --btn-color: #f50057;
   --btn-color-hover: #c51162;
   --text-color: #e3f2fd;
@@ -13,13 +13,12 @@
   --color-secondary: #ffffff;
   --color-danger: #d50000;
   --color-black: #010101;
-  
-//   color + hover
+
+  //   color + hover
   --color-primary-hover: #007c82;
   --color-secondary-hover: rgba(255, 255, 255, 0.1);
   --color-danger-hover: #b71c1c;
   --color-black-hover: #000000;
-  
 
   // font-size
   --font-size-xxl: 80px;
@@ -72,19 +71,16 @@
 
   --box-shadow-btn: 0 0 0 0 #000;
   --box-shadow-main: 0 1px 1px 0 rgb(255 255 255 / 5%);
-  --box-shadow-header: 0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
-  
+  --box-shadow-header:
+    0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
 
   --transition-main: 0.3s;
-
 }
 
 $width-sm: 700px;
 $width-md: 991px;
 $width-xl: 1200px;
 $width-xxl: 1400px;
-
-
 
 @mixin flex-space-between-row {
   display: flex;
@@ -109,57 +105,54 @@ $width-xxl: 1400px;
 }
 
 @mixin flex-space-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @mixin flex-gap-sm {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
 }
 @mixin flex-gap-md {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-md);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
 }
 @mixin flex-gap-lg {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-lg);
 }
 @mixin flex-gap-xl {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xl);
 }
 @mixin flex-gap-xxl {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xxl);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xxl);
 }
 
 @mixin flex-gap-column-md {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
 }
 @mixin flex-gap-column-lg {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
 }
 
 @mixin header-title {
-    font-size: calc(var(--font-size-md) - 2px);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-color-grey);
+  font-size: calc(var(--font-size-md) - 2px);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-grey);
 }
 
-
 @mixin animation-text-transform-hover {
-
 }
 
 @mixin heading-title-size {
@@ -173,4 +166,16 @@ $width-xxl: 1400px;
   font-size: var(--font-size-md);
   color: var(--text-color-grey);
   font-weight: var(--font-weight-bold);
+}
+
+@mixin grid-main {
+  display: grid;
+  grid-template-columns: auto;
+  gap: var(--margin-sm);
+  @media (max-width: $width-xxl) {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  }
+  @media (max-width: $width-sm) {
+    grid-template-columns: 1fr;
+  }
 }

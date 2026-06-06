@@ -1,5 +1,23 @@
+@use "../../../styles/variables" as bento;
 .bento-container {
-    display: grid;
-    grid-template-columns: auto;
-    gap: var(--gap-sm);
+  @include bento.grid-main;
+  .grid-item.item-availability {
+    a {
+      background-color: var(--btn-color);
+      padding: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--border-radius-md);
+      span {
+        font-size: var(--font-size-md);
+        font-weight: var(--font-weight-main);
+      }
+      svg {
+        padding: var(--padding-xxs);
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
 }

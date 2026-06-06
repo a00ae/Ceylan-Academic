@@ -44,8 +44,11 @@
     position: relative;
     border-radius: var(--border-radius-md);
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: stretch;
+    @media (max-width: service.$width-xxl) {
+      flex-direction: column;
+    }
 
     // 2. لمنع أي محتوى داخلي (الصورة) من تمديد الحاوية وإجبارها على الالتزام بالحدود
 
@@ -53,6 +56,10 @@
       width: 80%;
       overflow: hidden;
       max-height: 610px;
+      @media (max-width: service.$width-xxl) {
+        width: 100%;
+        max-height: max-content;
+      }
 
       img {
         // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
@@ -73,13 +80,17 @@
     }
     &_specifications {
       display: grid;
-      grid-template-columns: 1;
+      grid-template-columns: 1fr;
       gap: var(--gap-md);
       .service_specifications-desc {
-        font-size: var(--font-size-sm);
+        font-size: calc(var(--font-size-sm) + 2px);
         font-weight: var(--font-weight-main);
         color: var(--border-color);
+        @media (max-width: service.$width-xxl) {
+          display: none;
+        }
       }
+      
     }
   }
 }

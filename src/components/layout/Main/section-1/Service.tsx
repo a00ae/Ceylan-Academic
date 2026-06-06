@@ -1,7 +1,5 @@
 import styles from "./Service.module.scss";
 import ArbiacLanguage from "../../../../assets/service/language-ar-1.png";
-import Button from "../../../ui/Button/Button";
-import { RiArrowRightUpLine } from "@remixicon/react";
 import { BentoGrid } from "../../../ui/Card/BentoGrid";
 
 const Service = () => {
@@ -25,12 +23,7 @@ const Service = () => {
               temellerini öğrenin.
             </div>
             <BentoGrid />
-            <a href="#">
-              <Button style={{ display: "flex", alignItems: "center" }}>
-                <span style={{ flex: 1 }}>Şimdi başla</span>{" "}
-                <RiArrowRightUpLine />
-              </Button>
-            </a>
+
           </div>
         </div>
       </div>
