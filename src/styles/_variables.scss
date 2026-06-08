@@ -87,6 +87,11 @@ $width-xxl: 1400px;
   justify-content: space-between;
   align-items: center;
 }
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @mixin container-padding-box {
   padding-left: var(--padding-md);
@@ -135,6 +140,11 @@ $width-xxl: 1400px;
   gap: var(--gap-xxl);
 }
 
+@mixin flex-gap-column-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
 @mixin flex-gap-column-md {
   display: flex;
   flex-direction: column;
@@ -153,6 +163,7 @@ $width-xxl: 1400px;
 }
 
 @mixin animation-text-transform-hover {
+  
 }
 
 @mixin heading-title-size {

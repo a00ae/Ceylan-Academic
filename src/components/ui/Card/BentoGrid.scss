@@ -1,6 +1,20 @@
 @use "../../../styles/variables" as bento;
 .bento-container {
   @include bento.grid-main;
+  .grid-item.item-services {
+    ul {
+      @include bento.flex-gap-column-sm;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--gap-sm);
+        font-weight: var(--font-weight-main);
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
   .grid-item.item-availability {
     a {
       background-color: var(--btn-color);
@@ -9,15 +23,61 @@
       align-items: center;
       justify-content: space-between;
       border-radius: var(--border-radius-md);
-      span {
-        font-size: var(--font-size-md);
-        font-weight: var(--font-weight-main);
+      border: 2px dashed transparent;
+      transition:  var(--transition-main);
+      .farst {
+        overflow: hidden;
+        span {
+          position: relative;
+          font-size: var(--font-size-md);
+          font-weight: var(--font-weight-main);
+          display: block;
+          transition: transform var(--transition-main);
+          &::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 100%; // يضعه أسفل النص الأصلي تماماً
+            left: 0;
+            width: 100%;
+            transition: transform var(--transition-main);
+            color: var(--border-color);
+          }
+        }
       }
-      svg {
-        padding: var(--padding-xxs);
+      .svg {
+        padding: var(--padding-xs);
         background-color: #fff;
-        color: #000;
+        border-radius: var(--border-radius-sm);
+        @include bento.flex-center;
+
+        svg {
+          color: #000;
+          transition: transform var(--transition-main);
+        }
       }
     }
+    :hover {
+      border-color: var(--btn-color);
+      background-color: #fff;
+      .farst {
+        span {
+          transform: translateY(-100%);
+        }
+        &::before {
+          transform: translateY(-100%);
+        }
+      }
+      svg {
+        transform: rotate(40deg);
+      }
+    }
+  }
+  .grid-item.item-meta {
+    // .rating {
+    //     @include bento.flex-center;
+    //     justify-content: start;
+    //     gap: var(--gap-sm);
+    // }
+    
   }
 }

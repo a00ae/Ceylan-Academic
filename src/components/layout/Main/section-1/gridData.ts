@@ -22,16 +22,16 @@ export const gridData: GridCard[] = [
   {
     id: "card-2",
     type: "services",
-    tags: ["Branding", "Digital design", "Marketing strategy", "Creative production"],
+    tags: ["İş güvenliği", "Temelleri öğrenmek", "Net öğrenme planları", "10 yılı aşkın deneyim"],
     // footer: "© 2017 - 26 | Based in Germany"
   },
   {
     id: "card-3",
     type: "meta",
     rating: "4.9/5",
-    stats: "We’ve helped 95+ brands elevate their businesses",
-    title: "Available for Sep.",
-    spots: "3 spots"
+    stats: "Birçok öğrencinin seviyesini yükseltmesine yardımcı olduk.",
+    title: "Her seviye için uygundur..",
+    spots: "6 seviye"
 
   },
   {
