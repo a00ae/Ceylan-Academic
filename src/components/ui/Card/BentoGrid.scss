@@ -1,6 +1,14 @@
 @use "../../../styles/variables" as bento;
 .bento-container {
   @include bento.grid-main;
+  .grid-item.item-intro {
+    h2 {
+      color: var(--text-color-grey);
+    }
+    p {
+      @include bento.font-normal-tow;
+    }
+  }
   .grid-item.item-services {
     ul {
       @include bento.flex-gap-column-sm;
@@ -15,8 +23,34 @@
       }
     }
   }
+  .grid-item.item-meta {
+    @include bento.flex-gap-column-sm;
+    .rating {
+      @include bento.flex-gap-column-xs;
+      > p {
+      }
+    }
+    .available {
+      @include bento.flex-space-between;
+      &_left {
+        @include bento.flex-gap-sm;
+        > p {
+          @include bento.font-normal;
+        }
+      }
+      &_reight {
+        @include bento.font-normal;
+        color: var(--text-color-grey);
+        font-weight: 600;
+      }
+    }
+  }
   .grid-item.item-availability {
+    display: flex;
+    align-items: end;
+
     a {
+      width: 100%;
       background-color: var(--btn-color);
       padding: var(--border-radius-md);
       display: flex;
@@ -24,26 +58,35 @@
       justify-content: space-between;
       border-radius: var(--border-radius-md);
       border: 2px dashed transparent;
-      transition:  var(--transition-main);
+      transition: var(--transition-main);
+
       .farst {
         overflow: hidden;
-        span {
+
+        .data-title {
           position: relative;
           font-size: var(--font-size-md);
           font-weight: var(--font-weight-main);
           display: block;
           transition: transform var(--transition-main);
+          background-color: inherit;
+
+          // حل مشكلة بكسلة الحروف أثناء التحريك
+          backface-visibility: hidden;
+          transform: translateZ(0);
+
           &::before {
             content: attr(data-title);
             position: absolute;
-            top: 100%; // يضعه أسفل النص الأصلي تماماً
+            top: 100%;
             left: 0;
             width: 100%;
-            transition: transform var(--transition-main);
             color: var(--border-color);
+            // الـ ::before سيرث الحركة تلقائياً لأن الأب (data-title) يتحرك بالكامل
           }
         }
       }
+
       .svg {
         padding: var(--padding-xs);
         background-color: #fff;
@@ -55,29 +98,24 @@
           transition: transform var(--transition-main);
         }
       }
-    }
-    :hover {
-      border-color: var(--btn-color);
-      background-color: #fff;
-      .farst {
-        span {
-          transform: translateY(-100%);
+
+      // ✅ الحل هنا: الهوفر يتم على الرابط 'a' لضمان استقرار المساحة
+      &:hover {
+        border-color: var(--btn-color);
+        background-color: #fff;
+
+        .farst {
+          .data-title {
+            transform: translateY(
+              -100%
+            ); // سيتحرك النص ومعه الـ ::before التابع له بدون مشاكل
+          }
         }
-        &::before {
-          transform: translateY(-100%);
+
+        svg {
+          transform: rotate(40deg);
         }
       }
-      svg {
-        transform: rotate(40deg);
-      }
     }
-  }
-  .grid-item.item-meta {
-    // .rating {
-    //     @include bento.flex-center;
-    //     justify-content: start;
-    //     gap: var(--gap-sm);
-    // }
-    
   }
 }

@@ -44,7 +44,7 @@
     position: relative;
     border-radius: var(--border-radius-md);
     display: flex;
-    // justify-content: space-between;
+    gap: var(--gap-sm);
     align-items: stretch;
     @media (max-width: service.$width-xxl) {
       flex-direction: column;

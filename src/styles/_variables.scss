@@ -140,6 +140,11 @@ $width-xxl: 1400px;
   gap: var(--gap-xxl);
 }
 
+@mixin flex-gap-column-xs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
 @mixin flex-gap-column-sm {
   display: flex;
   flex-direction: column;
@@ -163,7 +168,6 @@ $width-xxl: 1400px;
 }
 
 @mixin animation-text-transform-hover {
-  
 }
 
 @mixin heading-title-size {
@@ -189,4 +193,16 @@ $width-xxl: 1400px;
   @media (max-width: $width-sm) {
     grid-template-columns: 1fr;
   }
+}
+
+@mixin font-normal {
+  color: var(--bg-color-default);
+  font-weight: var(--font-weight-main);
+  font-size: var(--font-size-sm);
+}
+
+@mixin font-normal-tow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-main);
+  color: var(--bg-color-default);
 }

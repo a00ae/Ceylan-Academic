@@ -12,7 +12,6 @@ export function BentoGrid() {
             <>
               <h2>{card.title}</h2>
               <p>{card.tagline}</p>
-              <button className="btn-play">{card.footer}</button>
             </>
           )}
 
@@ -33,34 +32,55 @@ export function BentoGrid() {
           {/* كارت التقييم والإحصائيات */}
           {card.type === "meta" && (
             <>
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "var(--gap-xxs)",
-                }}
-                className="rating">
+              <span className="rating">
                 {" "}
-                <div>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <RiStarFill
-                      color="var(--btn-color)"
-                      className="star"
-                      key={i}
-                    />
-                  ))}
-                </div>
-                <span
+                <div
                   style={{
-                    color: "var(--heading-color)",
-                    fontSize: "calc(var(--font-size-md) - 2px)",
-                    fontWeight: "var(--font-weight-main)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "var(--gap-xxs)",
                   }}>
-                  {" "}
-                  {card.rating}
-                </span>
+                  <div>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <RiStarFill
+                        color="var(--btn-color)"
+                        className="star"
+                        key={i}
+                      />
+                    ))}
+                  </div>
+                  <span
+                    style={{
+                      color: "var(--heading-color)",
+                      fontSize: "calc(var(--font-size-md) - 2px)",
+                      fontWeight: "var(--font-weight-main)",
+                    }}>
+                    {" "}
+                    {card.rating}
+                  </span>
+                </div>
+                <p>{card.stats}</p>
               </span>
-              <p>{card.stats}</p>
+              <div
+                style={{
+                  backgroundColor: "var(--border-color)",
+                  width: "100%",
+                  height: "2px",
+                }}></div>
+              <div className="available">
+                <div className="available_left">
+                  <div
+                    style={{
+                      width: 20,
+                      height: 20,
+                      borderRadius: "50%",
+                      backgroundColor: "var(--color-primary-hover)",
+                    }}></div>
+                  <p>{card.title}</p>
+                </div>
+
+                <p className="available_reight">{card.spots}</p>
+              </div>
             </>
           )}
 
@@ -69,7 +89,7 @@ export function BentoGrid() {
             <>
               <a href="#">
                 <div className="farst">
-                  <span data-title={card.title}>{card.title}</span>
+                  <span className="data-title" data-title={card.title}>{card.title}</span>
                 </div>
                 <div className="svg">
                   <RiArrowRightUpLine />
