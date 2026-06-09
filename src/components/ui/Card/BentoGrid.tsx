@@ -79,7 +79,7 @@ export function BentoGrid() {
                   <p>{card.title}</p>
                 </div>
 
-                <p className="available_reight">{card.spots}</p>
+                <p className="available_right">{card.spots}</p>
               </div>
             </>
           )}
@@ -88,7 +88,7 @@ export function BentoGrid() {
           {card.type === "availability" && (
             <>
               <a href="#">
-                <div className="farst">
+                <div className="first">
                   <span className="data-title" data-title={card.title}>{card.title}</span>
                 </div>
                 <div className="svg">
