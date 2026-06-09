@@ -3,27 +3,33 @@ interface PlansCard {
   desc: string;
 }
 
-interface BoxData {
+export interface BoxItemType {
   id: number;
-  title?: string;
+  title: string;
   desc?: string;
-  card?: PlansCard[];
+  card?: PlansCard[]; // تركتها مصفوفة هنا لأن الكرت نفسه قد يحتوي على عدة أسعار بالداخل
 }
 
-export const BoxData: Record<string, BoxData> = {
-  palns: {
+// الواجهة الخاصة بالأوبجيكت الكبير (بدون مصفوفات للأقسام)
+interface FullPageDataType {
+  plans: BoxItemType;  // كائن واحد مباشر
+  prices: BoxItemType; // كائن واحد مباشر
+}
+
+export const pageData: FullPageDataType = {
+  plans: {
     id: 1,
-    title: "plans",
-    desc: "@2025",
+    title: "الخطة الأساسية",
+    desc: "@2026 - ميزات محدودة",
   },
-  price: {
-    id: 2,
+  prices: {
+    id: 1,
     title: "Fyiat",
     desc: "plans",
     card: [
       {
-        pricePelan: "",
-        desc: "",
+        pricePelan: "15$",
+        desc: "وصف السعر الأول",
       },
     ],
   },

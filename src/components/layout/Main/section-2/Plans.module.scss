@@ -1,0 +1,4 @@
+@use "../../../../styles/variables" as v;
+.plans {
+    @include v.container-padding-box;
+}

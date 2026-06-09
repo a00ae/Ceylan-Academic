@@ -1,4 +1,5 @@
 import { memo } from "react";
+import "./box.scss"
 
 interface Props {
   id: number;
@@ -7,15 +8,15 @@ interface Props {
   desc?: string;
 }
 
-const Box = (props: Props) => {
+const Box = ({ id, className = "", title, desc }: Props) => {
   return (
-    <div className={`box ${props.className && props.className}`}>
-      <div className={`box ${props.className ? `${props.className}_heading` : "heading"}`}>
-        <span>0{props.id}</span>
-        <span>|</span>
-        <span>{props.title}</span>
+    <div className={`box ${className}`}>
+      <div className={`box ${className ? `${className}_heading` : "heading"}`}>
+        <span>0{id}</span>
+        <span> | </span>
+        <span>{title}</span>
       </div>
-      {props.desc && <div>{props.desc}</div>}
+      {desc && <div className="box-desc">{desc}</div>}
     </div>
   );
 };
