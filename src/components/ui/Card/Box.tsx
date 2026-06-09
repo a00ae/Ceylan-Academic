@@ -16,7 +16,7 @@ const Box = ({ id, className = "", title, desc }: Props) => {
         <span data-break> | </span>
         <span data-title>{title}</span>
       </div>
-      {desc && <div className="box-desc">{desc}</div>}
+      {desc && <div className="box_desc">{desc}</div>}
     </div>
   );
 };

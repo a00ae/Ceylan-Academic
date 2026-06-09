@@ -17,4 +17,7 @@
       color: var(--heading-color);
     }
   }
+  &_desc {
+    @include v.typography-style(sm, bold, text-color)
+  }
 }
