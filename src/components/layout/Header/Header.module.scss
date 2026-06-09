@@ -1,15 +1,16 @@
 @use "../../../styles/variables" as v;
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap");
 
 .header {
-  @include v.flex-space-between;
+  @include v.flex-row(space-between, center, 0);
   width: 95%;
-  padding: var(--padding-sm);
+  padding: var(--space-sm);
   height: 80px;
-  margin: var(--margin-sm) auto;
+  margin: var(--space-sm) auto;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow-header);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
+  background-color: var(--bg-color-default);
   // تنسيقات الهيدر الخاصة بك (مثل display: flex; خلفية داكنة... إلخ)
 
   &_icon {
@@ -18,10 +19,10 @@
     position: relative;
     cursor: pointer;
     .edction {
-    color: var(--color-primary-hover);
-    position: absolute;
-    top: -7px;
-    left: 20px;
+      color: var(--color-primary-hover);
+      position: absolute;
+      top: -7px;
+      left: 20px;
     }
 
     .mainLogo {
@@ -35,7 +36,7 @@
     }
   }
   &_nav {
-    @include v.flex-gap-sm;
+    @include v.flex-row(center, center, sm);
     @media (max-width: v.$width-md) {
       display: none;
     }
@@ -46,10 +47,10 @@
     }
 
     a {
-      @include v.header-title;
+      @include v.typography-style(sm, main, text-color);
       display: inline-block; // تحويل العنصر ليقبل التعديلات على الأبعاد والتحويلات
       text-transform: capitalize;
-      
+
       span {
         display: block;
         transition: transform var(--transition-main);
@@ -75,5 +76,4 @@
       }
     }
   }
-
 }

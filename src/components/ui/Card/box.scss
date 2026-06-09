@@ -1,4 +1,20 @@
 @use "../../../styles/variables" as v;
 .box {
-  @include v.flex-space-between;
+  @include v.flex-row(space-between, center, sm);
+  &_heading {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    @include v.flex-row(flex-start, center, xxs);
+
+    // تنظيم العناصر بشكل عمودي واضح
+    span[data-number] {
+      color: var(--text-color-grey);
+    }
+    span[data-break] {
+      color: var(--btn-color);
+    }
+    span[data-title] {
+      color: var(--heading-color);
+    }
+  }
 }

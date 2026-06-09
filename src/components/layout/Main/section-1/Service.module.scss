@@ -2,32 +2,31 @@
 .service {
   @include service.container-padding-box;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--bg-color-default);
 
   &_container {
-    @include service.flex-gap-column-md;
+    @include service.flex-column(md, center);
     // 1. نضمن أن العناصر داخل الحاوية تتمدد لتأخذ نفس الطول الكامل للحاوية
     align-items: stretch;
   }
 
   &_text-desc {
-    @include service.flex-space-between;
+    @include service.flex-row(space-between, center, 0);
     @media (max-width: service.$width-xl) {
       flex-direction: column;
       align-items: start;
-      gap: var(--gap-md);
+      gap: var(--space-md);
     }
 
     h2 {
-      @include service.heading-title-size;
-      margin-bottom: var(--margin-md);
+      @include service.typography-style(xl, bold, heading-color);
+      margin-bottom: var(--space-md);
       text-transform: capitalize;
-      font-weight: 550;
       color: var(--heading-color);
     }
     p {
       width: 30%;
-      @include service.decs-text;
+      @include service.typography-style(sm, main, text-color-grey);
       span {
         color: var(--border-color);
       }
@@ -44,7 +43,7 @@
     position: relative;
     border-radius: var(--border-radius-md);
     display: flex;
-    gap: var(--gap-sm);
+    gap: var(--space-sm);
     align-items: stretch;
     @media (max-width: service.$width-xxl) {
       flex-direction: column;
@@ -81,16 +80,15 @@
     &_specifications {
       display: grid;
       grid-template-columns: 1fr;
-      gap: var(--gap-md);
+      gap: var(--space-md);
       .service_specifications-desc {
         font-size: calc(var(--font-size-sm) + 2px);
         font-weight: var(--font-weight-main);
-        color: var(--border-color);
+        color: var(--text-color);
         @media (max-width: service.$width-xxl) {
           display: none;
         }
       }
-      
     }
   }
 }

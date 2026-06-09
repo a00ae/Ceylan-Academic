@@ -19,8 +19,8 @@ interface FullPageDataType {
 export const pageData: FullPageDataType = {
   plans: {
     id: 1,
-    title: "الخطة الأساسية",
-    desc: "@2026 - ميزات محدودة",
+    title: "Planlar",
+    desc: "@2026 - Sınırlı özellikler",
   },
   prices: {
     id: 1,

@@ -11,10 +11,10 @@ interface Props {
 const Box = ({ id, className = "", title, desc }: Props) => {
   return (
     <div className={`box ${className}`}>
-      <div className={`box ${className ? `${className}_heading` : "heading"}`}>
-        <span>0{id}</span>
-        <span> | </span>
-        <span>{title}</span>
+      <div className={`box${className ? `${className}_heading` : "_heading"}`}>
+        <span data-number>0{id}</span>
+        <span data-break> | </span>
+        <span data-title>{title}</span>
       </div>
       {desc && <div className="box-desc">{desc}</div>}
     </div>

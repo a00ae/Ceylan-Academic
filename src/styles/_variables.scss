@@ -1,67 +1,46 @@
 :root {
-  // default
-  --btn-color: #f50057;
-  --btn-color-hover: #c51162;
-  --text-color: #e3f2fd;
-  --text-color-grey: #9e9e9e;
-  --bg-color-default: #0d1117;
-  --border-color: #3d444d;
-  --heading-color: #121212;
-
-  //color
+  // Brand Colors (Global Tokens)
   --color-primary: #00adb5;
-  --color-secondary: #ffffff;
-  --color-danger: #d50000;
-  --color-black: #010101;
-
-  //   color + hover
   --color-primary-hover: #007c82;
+  --color-secondary: #ffffff;
   --color-secondary-hover: rgba(255, 255, 255, 0.1);
+  --color-danger: #d50000;
   --color-danger-hover: #b71c1c;
+  --color-black: #010101;
   --color-black-hover: #000000;
 
-  // font-size
-  --font-size-xxl: 80px;
-  --font-size-xl: 40px;
-  --font-size-lg: 30px;
-  --font-size-md: 24px;
-  --font-size-sm: 18px;
-  --font-size-xs: 16px;
-  --font-size-xxs: 14px;
+  // Semantic UI Colors (تحديد لون العنصر بناءً على وظيفته)
+  --bg-color-default: #0d1117;
+  --border-color: #3d444d;
+  --text-color: #e3f2fd;
+  --text-color-grey: #9e9e9e;
+  --heading-color: #ffffff; // جعلناه فاتحاً ليتناسب مع الخلفية الغامقة
+  --btn-color: #f50057;
+  --btn-color-hover: #c51162;
 
-  // font-weight
+  // Font Sizes (Converted to rem for better Accessibility)
+  --font-size-xxl: 5rem;     // 80px
+  --font-size-xl: 2.5rem;    // 40px
+  --font-size-lg: 1.875rem;  // 30px
+  --font-size-md: 1.5rem;    // 24px
+  --font-size-sm: 1.125rem;  // 18px
+  --font-size-xs: 1rem;      // 16px
+  --font-size-xxs: 0.875rem; // 14px
+
   --font-weight-bold: 700;
   --font-weight-main: 500;
   --font-weight-sm: 400;
 
-  // margin
-  --margin-xxl: 100px;
-  --margin-xl: 80px;
-  --margin-lg: 60px;
-  --margin-md: 40px;
-  --margin-sm: 20px;
-  --margin-xs: 10px;
-  --margin-xxs: 5px;
+  // Spacing (Unified spacing tokens)
+  --space-xxl: 100px;
+  --space-xl: 80px;
+  --space-lg: 60px;
+  --space-md: 40px;
+  --space-sm: 20px;
+  --space-xs: 10px;
+  --space-xxs: 5px;
 
-  //padding
-  --padding-xxl: 100px;
-  --padding-xl: 80px;
-  --padding-lg: 60px;
-  --padding-md: 40px;
-  --padding-sm: 20px;
-  --padding-xs: 10px;
-  --padding-xxs: 5px;
-
-  // gap
-  --gap-xxl: 100px;
-  --gap-xl: 80px;
-  --gap-lg: 60px;
-  --gap-md: 40px;
-  --gap-sm: 20px;
-  --gap-xs: 10px;
-  --gap-xxs: 5px;
-
-  // border-radius
+  // Border Radius
   --border-radius-xxl: 25px;
   --border-radius-xl: 20px;
   --border-radius-lg: 15px;
@@ -69,140 +48,70 @@
   --border-radius-sm: 5px;
   --border-radius-xs: 2px;
 
+  // Shadows & Transitions
   --box-shadow-btn: 0 0 0 0 #000;
   --box-shadow-main: 0 1px 1px 0 rgb(255 255 255 / 5%);
-  --box-shadow-header:
-    0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
-
-  --transition-main: 0.3s;
+  --box-shadow-header: 0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
+  --transition-main: 0.3s ease;
 }
 
+// Breakpoints
 $width-sm: 700px;
 $width-md: 991px;
 $width-xl: 1200px;
 $width-xxl: 1400px;
 
-@mixin flex-space-between-row {
+// ميكسين مرن للـ Flex Row يغنيك عن تكرار الأسطر
+@mixin flex-row($justify: space-between, $align: center, $gap: 0) {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 {
+    gap: var(--space-#{$gap});
+  }
 }
 
+// ميكسين مرن للـ Flex Column
+@mixin flex-column($gap: 0, $align: stretch) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  @if $gap != 0 {
+    gap: var(--space-#{$gap});
+  }
+}
+
+// ميكسين الحاوية الكبرى مع تصحيح ألوان الخلفية لتناسب لون النص
 @mixin container-padding-box {
-  padding-left: var(--padding-md);
-  padding-right: var(--padding-md);
-  padding-top: var(--padding-xxl);
-  padding-bottom: var(--padding-xl);
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xl);
   width: 100%;
-  background-color: var(--color-secondary);
+  background-color: var(--bg-color-default); // استخدمنا الخلفية الافتراضية الداكنة للموقع
 
   @media (max-width: $width-md) {
-    padding-left: var(--padding-xs);
-    padding-right: var(--padding-xs);
-    padding-top: var(--padding-lg);
-    padding-bottom: var(--padding-md);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-md);
   }
 }
 
-@mixin flex-space-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@mixin flex-gap-sm {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-sm);
-}
-@mixin flex-gap-md {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-md);
-}
-@mixin flex-gap-lg {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-lg);
-}
-@mixin flex-gap-xl {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xl);
-}
-@mixin flex-gap-xxl {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xxl);
+// Typography Mixins
+@mixin typography-style($size, $weight, $color) {
+  font-size: var(--font-size-#{$size});
+  font-weight: var(--font-weight-#{$weight});
+  color: var(--#{$color});
 }
 
-@mixin flex-gap-column-xs {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xs);
-}
-@mixin flex-gap-column-sm {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-sm);
-}
-@mixin flex-gap-column-md {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-md);
-}
-@mixin flex-gap-column-lg {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-lg);
-}
-
-@mixin header-title {
-  font-size: calc(var(--font-size-md) - 2px);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-color-grey);
-}
-
-@mixin animation-text-transform-hover {
-}
-
-@mixin heading-title-size {
-  font-size: 80px;
-  font-weight: var(--font-weight-sm);
-  color: var(--border-color);
-  font-family: "Geist", "Geist Placeholder", sans-serif;
-}
-
-@mixin decs-text {
-  font-size: var(--font-size-md);
-  color: var(--text-color-grey);
-  font-weight: var(--font-weight-bold);
-}
-
+// كود الـ Grid الاحترافي والمستجيب
 @mixin grid-main {
   display: grid;
-  grid-template-columns: auto;
-  gap: var(--margin-sm);
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  
   @media (max-width: $width-xxl) {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); // 300px أكثر واقعية للكروت من 500px
   }
-  @media (max-width: $width-sm) {
-    grid-template-columns: 1fr;
-  }
-}
-
-@mixin font-normal {
-  color: var(--bg-color-default);
-  font-weight: var(--font-weight-main);
-  font-size: var(--font-size-sm);
-}
-
-@mixin font-normal-tow {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-main);
-  color: var(--bg-color-default);
 }
