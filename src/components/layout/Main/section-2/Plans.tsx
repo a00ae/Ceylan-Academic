@@ -3,6 +3,7 @@ import Box from "../../../ui/Card/Box";
 import { pageData } from "../../../ui/Card/dataBox";
 import Heading from "../../../ui/Card/Heading";
 import styles from "./Plans.module.scss";
+import { RiCheckboxCircleLine } from "@remixicon/react";
 
 const Plans = () => {
   // نستخرج كائن الـ plans المباشر
@@ -45,9 +46,27 @@ const Plans = () => {
               {/* price */}
               <div className={styles["price-componints"]}>
                 <p>1000 TL</p>
-                <p>/ <span>Ayilk</span></p>
+                <p>
+                  / <span>Ayilk</span>
+                </p>
+              </div>
 
-
+              {/* desc */}
+              <div className={styles["price_desc"]}>
+                <p>
+                  Kendi başlarına çalışmak ve eğitimlerini bağımsız olarak
+                  sürdürmek isteyen öğrenciler için idealdir.
+                </p>
+              </div>
+            </div>
+            {/* dashed */}
+            <div className={styles.dashed}></div>
+            {/* Middle */}
+            <div className={styles.middle}>
+              <p>Özellikler</p>
+              <div  className={styles.features}>
+                <RiCheckboxCircleLine />
+                <p>ayda 4 seans</p>
               </div>
             </div>
           </div>

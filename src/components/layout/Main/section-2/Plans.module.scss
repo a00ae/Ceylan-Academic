@@ -21,9 +21,7 @@
             @include v.typography-style(md, bold, text-color);
           }
           .check-box {
-            display: flex;
-            align-items: center;
-            gap: var(--gap-sm);
+            @include v.flex-row(center, center, sm);
             .switch {
               position: relative;
               width: 50px;
@@ -42,7 +40,7 @@
                 left: 0;
                 top: 0;
                 cursor: pointer;
-                background-color: var(--white-color);
+                background-color: var(--text-color);
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
                 &::before {
@@ -69,7 +67,7 @@
                 -webkit-transform: translateX(25px);
                 -ms-transform: translateX(25px);
                 transform: translateX(25px);
-                background-color: var(--white-color, white);
+                background-color: var(--text-color, white);
               }
 
               // Rounded sliders
@@ -87,6 +85,23 @@
             }
           }
         }
+        .price-componints {
+          background-color: #ccc;
+          @include v.flex-row(center, end, sm);
+          p:first-child {
+            @include v.typography-style(lg, bold, text-color);
+          }
+          span {
+            @include v.typography-style(sm, main, text-color-grey);
+          }
+        }
+        .price_desc {
+          @include v.typography-style(sm, main, text-color);
+        }
+      }
+      .dashed {
+        width: 100%;
+        border-bottom: 1px dashed var(--text-color);
       }
     }
   }
