@@ -8,7 +8,7 @@ import { RiCheckboxCircleLine } from "@remixicon/react";
 const Plans = () => {
   // نستخرج كائن الـ plans المباشر
   const { plans } = pageData;
-  const [checkedPlans, setCheckedPlans] = useState<Record<string, boolean>>({});
+  // const [checkedPlans, setCheckedPlans] = useState<Record<string, boolean>>({});
 
   // const togglePlan = (planTitle: string) => {
   //   setCheckedPlans((prev) => ({
