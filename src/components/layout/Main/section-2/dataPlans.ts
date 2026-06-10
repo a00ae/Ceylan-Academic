@@ -1,6 +1,6 @@
-interface DataPlans {
-    id: number;
-    type: "Küçük plan",
-    price: number,
+// interface DataPlans {
+//     id: number;
+//     type: "Küçük plan",
+//     price: number,
     
-}
+// }
