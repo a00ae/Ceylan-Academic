@@ -1,8 +1,93 @@
 @use "../../../../styles/variables" as v;
 .plans {
-    @include v.container-padding-box;
-    &_container {
-        @include v.flex-column(md);
+  @include v.container-padding-box;
+  &_container {
+    @include v.flex-column(md);
+  }
+  &_card {
+    @include v.flex-row(center, center, md);
+    width: 100%;
+    .price-card {
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-sm);
+      padding: var(--space-sm);
+      flex: 1;
+      @include v.flex-column(md);
+      .top {
+        @include v.flex-column(sm);
+        .title {
+          @include v.flex-row(space-between);
+          span[data-plans] {
+            @include v.typography-style(md, bold, text-color);
+          }
+          .check-box {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+            .switch {
+              position: relative;
+              width: 50px;
+              height: 25px;
+              display: inline-block;
+
+              & input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+              :global(.slider) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                top: 0;
+                cursor: pointer;
+                background-color: var(--white-color);
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  width: 20px;
+                  height: 20px;
+                  left: 2px;
+                  bottom: 2.5px;
+                  background-color: #ccc;
+                  -webkit-transition: 0.4s;
+                  transition: 0.4s;
+                }
+              }
+
+              & input:checked + :global(.slider) {
+                background-color: var(--btn-color);
+              }
+              & input:focus + :global(.slider) {
+                box-shadow: 0 0 1px #fc404057;
+              }
+
+              & input:checked + :global(.slider)::before {
+                -webkit-transform: translateX(25px);
+                -ms-transform: translateX(25px);
+                transform: translateX(25px);
+                background-color: var(--white-color, white);
+              }
+
+              // Rounded sliders
+              :global(.slider.round) {
+                border-radius: 30px;
+              }
+              :global(.slider.round)::before {
+                border-radius: 50%;
+              }
+            }
+            & p {
+              font-size: var(--font-size-md-alt);
+              font-weight: var(--font-weight-semibold);
+              color: var(--main-title-color);
+            }
+          }
+        }
+      }
     }
-    
+  }
 }

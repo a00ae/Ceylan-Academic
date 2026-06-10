@@ -21,3 +21,11 @@
     @include v.typography-style(sm, bold, text-color)
   }
 }
+
+.box__title {
+  @include v.flex-column(md, center);
+  h2 {
+    @include v.typography-style(xxl, main, btn-color)
+  }
+}
+
