@@ -9,12 +9,12 @@ const Plans = () => {
   const { plans } = pageData;
   const [checkedPlans, setCheckedPlans] = useState<Record<string, boolean>>({});
 
-  const togglePlan = (planTitle: string) => {
-    setCheckedPlans((prev) => ({
-      ...prev,
-      [planTitle]: !prev[planTitle],
-    }));
-  };
+  // const togglePlan = (planTitle: string) => {
+  //   setCheckedPlans((prev) => ({
+  //     ...prev,
+  //     [planTitle]: !prev[planTitle],
+  //   }));
+  // };
 
   return (
     <section className={styles.plans}>
