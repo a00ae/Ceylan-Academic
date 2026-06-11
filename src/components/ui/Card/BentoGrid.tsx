@@ -1,6 +1,7 @@
-import { RiArrowRightUpLine, RiStarFill } from "@remixicon/react";
+import {RiStarFill } from "@remixicon/react";
 import { gridData } from "../../layout/Main/section-1/gridData.ts";
 import "./BentoGrid.scss";
+import Button from "../Button/Button.tsx";
 
 export function BentoGrid() {
   return (
@@ -87,14 +88,15 @@ export function BentoGrid() {
           {/* كارت التوفر */}
           {card.type === "availability" && (
             <>
-              <a href="#">
+              {/* <a href="#">
                 <div className="first">
                   <span className="data-title" data-title={card.title}>{card.title}</span>
                 </div>
                 <div className="svg">
                   <RiArrowRightUpLine />
                 </div>
-              </a>
+              </a> */}
+              <Button>{card.title}</Button>
             </>
           )}
         </div>

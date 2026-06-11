@@ -1,0 +1,54 @@
+
+      .first { // ✅ تم تصحيح الاسم من farst إلى first
+        overflow: hidden;
+
+        .data-title {
+          position: relative;
+          font-size: var(--font-size-md);
+          font-weight: var(--font-weight-main);
+          display: block;
+          transition: transform var(--transition-main);
+          background-color: inherit;
+          
+          // حل بكسلة الخطوط أثناء التحريك (تطبيق ممتاز منك)
+          backface-visibility: hidden;
+          transform: translateZ(0);
+
+          &::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            color: var(--border-color);
+          }
+        }
+      }
+
+      .svg {
+        padding: var(--space-xs);
+        background-color: #fff;
+        border-radius: var(--border-radius-sm);
+        @include bento.flex-row(center, center, 0);
+
+        svg {
+          color: #000;
+          transition: transform var(--transition-main);
+        }
+      }
+
+      // تأثير الـ Hover الاحترافي والثابت
+      &:hover {
+        border-color: var(--btn-color);
+        background-color: #fff;
+
+        .first {
+          .data-title {
+            transform: translateY(-100%);
+          }
+        }
+
+        svg {
+          transform: rotate(40deg);
+        }
+      }

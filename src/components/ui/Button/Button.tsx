@@ -1,5 +1,6 @@
+import { RiArrowRightUpLine } from "@remixicon/react";
 import styles from "./Button.module.scss";
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: "default" | "primary" | "secondary" | "danger" | "black"; // تحديد أشكال الزر
   size?: "small" | "medium" | "large";
 }
@@ -13,9 +14,16 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const buttonClass = `${styles.btn} ${styles[variant]} ${styles[size]} ${className}`;
   return (
-    <button className={buttonClass} {...props}>
-      {children}
-    </button>
+    <a className={buttonClass} {...props}>
+      <div className={styles.first}>
+        <span className={styles["data-title"]} data-title={children}>
+          {children}
+        </span>
+      </div>
+      <div className={styles.svg}>
+        <RiArrowRightUpLine />
+      </div>
+    </a>
   );
 };
 

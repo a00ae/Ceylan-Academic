@@ -1,43 +1,123 @@
+@use "../../../styles/variables" as btn;
+
+// 1. مصفوفة الألوان المحدثة (التحكم الكامل بالخلفية والنص والحدود)
+$btn-themes: (
+  "default": (
+    bg: var(--btn-color),
+    color: var(--color-white),
+    border: var(--btn-color),
+    hover-bg: #ffffff,               // الخلفية تصبح بيضاء عند الهوفر
+    hover-border: var(--btn-color),
+    hover-color: var(--color-black-hover)    // النص يتغير ليتناسب مع الخلفية البيضاء
+  ),
+  "primary": (
+    bg: var(--color-primary),
+    color: #ffffff,
+    border: transparent,
+    hover-bg: var(--color-primary-hover),
+    hover-border: transparent,
+    hover-color: #ffffff             // يظل النص أبيض لأن الخلفية داكنة
+  ),
+  "secondary": (
+    bg: transparent,
+    color: #ffffff,
+    border: var(--color-secondary),
+    hover-bg: var(--color-secondary-hover),
+    hover-border: var(--color-secondary-hover),
+    hover-color: #ffffff             // يظل النص أبيض
+  ),
+  "dark": ( // مثال إضافي لزر بخلفية سوداء يتحول لشفاف أو أبيض عند الهوفر
+    bg: #000000,
+    color: #ffffff,                  // النص أبيض على خلفية سوداء
+    border: #000000,
+    hover-bg: #ffffff,               // عند الهوفر الخلفية بيضاء
+    hover-border: #000000,
+    hover-color: #000000             // النص ينعكس ليصبح أسود
+  )
+);
+
+// 2. الكلاس الأساسي للزر
 .btn {
-  border: none;
+  border: 2px dashed transparent;
   border-radius: var(--border-radius-sm);
   font-family: Inter, "IBM Plex Sans Arabic", sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-}
-.default {
-  background-color: var(--btn-color);
-  color: #ffffff;
-  &:hover {
-    background-color: var(--btn-color-hover);
-  }
-}
+  @include btn.flex-row(center, center, sm);
 
-// الأشكال (Variants)
-.primary {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  &:hover {
-    background-color: var(--color-primary-hover);
-  }
-}
+  .first {
+    overflow: hidden;
 
-.secondary {
-  background-color: transparent;
-  border: 2px solid var(--color-secondary);
-  color: #ffffff;
-  &:hover {
-    background-color: var(--color-secondary-hover);
-  }
-}
+    .data-title {
+      position: relative;
+      display: block;
+      transition: transform var(--transition-main);
+      background-color: inherit;
+      backface-visibility: hidden;
+      transform: translateZ(0);
 
-// الأحجام (Sizes)
-.small {
-  padding: 6px 12px;
-  font-size: 14px;
-}
-.medium {
-  padding: 10px 20px;
-  font-size: 16px;
+      &::before {
+        content: attr(data-title);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        // سيتم التحكم بلونه ديناميكيًا بالأسفل لتجنب التعارض
+      }
+    }
+  }
+
+  .svg {
+    padding: var(--space-xs);
+    background-color: #fff;
+    border-radius: var(--border-radius-sm);
+    @include btn.flex-row(center, center, 0);
+
+    svg {
+      color: #000;
+      transition: transform var(--transition-main);
+    }
+  }
+
+  // تأثيرات الأنميشن العامة عند الهوفر
+  &:hover {
+    .first .data-title {
+      transform: translateY(-100%);
+    }
+
+    svg {
+      transform: rotate(40deg);
+    }
+  }
+
+  // 3. توليد الألوان والتأثيرات المتطابقة تلقائيًا
+  @each $theme, $colors in $btn-themes {
+    &.#{$theme} {
+      background-color: map-get($colors, bg);
+      color: map-get($colors, color);
+      
+      @if map-get($colors, border) != transparent {
+        border: 2px dashed map-get($colors, border);
+      }
+
+      // ضبط لون النص التأثيري (الـ التموضع السفلي) قبل الهوفر ليطابق لون الزر الأصلي
+      .first .data-title::before {
+        color: map-get($colors, hover-color);
+      }
+
+      &:hover {
+        background-color: map-get($colors, hover-bg);
+        color: map-get($colors, hover-color);
+        
+        @if map-get($colors, hover-border) != transparent {
+          border-color: map-get($colors, hover-border);
+        }
+      }
+    }
+  }
+
+  // 4. الأحجام
+  &.small { padding: 6px 6px; font-size: 14px; }
+  &.medium { padding: 10px 10px; font-size: 16px; }
 }
