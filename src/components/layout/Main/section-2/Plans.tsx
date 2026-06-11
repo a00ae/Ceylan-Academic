@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import Button from "../../../ui/Button/Button";
 import Box from "../../../ui/Card/Box";
 import { pageData } from "../../../ui/Card/dataBox";
 import Heading from "../../../ui/Card/Heading";
@@ -73,6 +74,8 @@ const Plans = () => {
             </div>
             {/* dashed */}
             <div className={styles.dashed}></div>
+            {/* btn */}
+            <Button style={{justifyContent: "space-between"}}>Şimdi kayıt olun</Button>
           </div>
         </div>
       </div>

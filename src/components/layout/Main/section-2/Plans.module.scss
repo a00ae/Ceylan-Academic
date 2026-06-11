@@ -86,7 +86,6 @@
           }
         }
         .price-componints {
-          background-color: #ccc;
           @include v.flex-row(center, end, sm);
           p:first-child {
             @include v.typography-style(lg, bold, text-color);
