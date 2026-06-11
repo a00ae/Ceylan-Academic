@@ -103,6 +103,24 @@
         width: 100%;
         border-bottom: 1px dashed var(--text-color);
       }
+      .middle {
+        @include v.flex-column(md);
+        p[data-features] {
+          @include v.typography-style(sm, bold, text-color-grey-400)
+        }
+        .features {
+          @include v.flex-column(sm);
+          .features-card {
+            @include v.flex-row(flex-start, center, xs);
+            svg {
+              @include v.typography-style(sm, main, btn-color)
+            }
+            p {
+              @include v.typography-style(xs, main, text-color);
+            }
+          }
+        }
+      }
     }
   }
 }

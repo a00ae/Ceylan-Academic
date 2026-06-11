@@ -63,12 +63,16 @@ const Plans = () => {
             <div className={styles.dashed}></div>
             {/* Middle */}
             <div className={styles.middle}>
-              <p>Özellikler</p>
-              <div  className={styles.features}>
-                <RiCheckboxCircleLine />
-                <p>ayda 4 seans</p>
+              <p data-features>Özellikler</p>
+              <div className={styles.features}>
+                <div className={styles["features-card"]}>
+                  <RiCheckboxCircleLine />
+                  <p>ayda 4 seans</p>
+                </div>
               </div>
             </div>
+            {/* dashed */}
+            <div className={styles.dashed}></div>
           </div>
         </div>
       </div>
