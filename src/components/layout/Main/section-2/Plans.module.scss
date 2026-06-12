@@ -79,9 +79,7 @@
               }
             }
             & p {
-              font-size: var(--font-size-md-alt);
-              font-weight: var(--font-weight-semibold);
-              color: var(--main-title-color);
+              @include v.typography-style(sm, bold, text-color);
             }
           }
         }

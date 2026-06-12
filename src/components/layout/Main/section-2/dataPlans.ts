@@ -16,7 +16,7 @@ export const DataPlans: DataPlans[] = [
     price: "1200 TL",
     descount: "1000 TL",
     desc: "Bu plan, bağımsız olarak çalışmak isteyen ileri düzey öğrenciler için tasarlanmıştır.",
-    features: ["4",  "Öğrencinin hızına ve kavrayışına bağlıdır.", "20"],
+    features: ["Ayda 4 saat", "İlk ders ücretsizdir",  "Öğrencinin hızına ve kavrayışına bağlıdır.", "%20 indirim"],
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const DataPlans: DataPlans[] = [
     price: "5100 TL",
     descount: "4850 TL",
     desc: "Bu plan tüm öğrenciler için uygundur. Ancak, kursu erken bitirmek istiyorsanız, bunu tavsiye etmiyoruz.",
-    features: ["18", "15", "50"],
+    features: ["Ayda 18 saat", "İlk hafta ücretsiz", "15 ay", "%50 indirim"],
   },
   {
     id: 3,
@@ -34,6 +34,6 @@ export const DataPlans: DataPlans[] = [
     price: "8400 TL",
     descount: "7500 TL",
     desc: "Bu plan, derslerin yoğunluğu ve sağlanan destek açısından herkes için uygundur. Ancak, kısıtlı bütçesi olanlar için önerilmez.",
-    features: ["36",  "8", "20"],
+    features: ["Ayda 18 saat", "İlk hafta ücretsiz",  "8 ay", "%20 indirim"],
   },
 ];
