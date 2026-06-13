@@ -21,20 +21,20 @@ const Plans = () => {
 
   return (
     <section className={styles.plans}>
+      <Box {...plans} />
       <div className={styles["plans_container"]}>
         {/* نمرر الكائن مباشرة بدون map */}
 
-        <Box {...plans} />
         <Heading {...plans} />
 
         <div className={styles["plans_card"]}>
           {DataPlans.map(
-            ({ id, type, name, price, descount, desc, features }) => {
-              const isYearly = !!checkedPlans[name]
+            ({ id, type, name, price, discount, desc, features, currency }) => {
+              const isYearly = !!checkedPlans[name];
               return (
                 <div
                   key={id}
-                  className={`${styles["price-card"]} ${styles[type]}`}>
+                  className={`${styles["price-card"]} ${styles[type.toLowerCase()]}`}>
                   <div className={styles.top}>
                     {/* title */}
                     <div className={styles.title}>
@@ -54,16 +54,21 @@ const Plans = () => {
                       ) : null}
                     </div>
                     {/* price */}
-                    <div className={styles["price-componints"]}>
-                      <p data-price={descount}>{price}</p>
-                      <p>
-                        / <span>Ayilk</span>
+                    <div
+                      className={`${styles["price-components"]} ${isYearly ? styles.yearly : ""}`}>
+                      <div className={styles["price-wrapper"]}>
+                        {/* عرض السعر الأصلي مع العملة ديناميكياً */}
+                        <span data-price={`${discount} ${currency}`}>
+                          {price} {currency}
+                        </span>
+                      </div>
+
+                      <p className={styles["price-period"]}>
+                        / <span>{isYearly ? "Yıllık" : "Aylık"}</span>
                       </p>
                     </div>
-
-                    {/* desc */}
                     <div className={styles["price_desc"]}>
-                      <p>{desc}</p>
+                      <p>{desc}</p>{" "}
                     </div>
                   </div>
                   {/* dashed */}
@@ -84,9 +89,24 @@ const Plans = () => {
                   {/* dashed */}
                   <div className={styles.dashed}></div>
                   {/* btn */}
-                  <Button style={{ justifyContent: "space-between" }}>
-                    Şimdi kayıt olun
-                  </Button>
+                  {type === "Premium" ? (
+                    <Button
+                      variant="primary"
+                      style={{
+                        justifyContent: "space-between",
+                        borderRadius: "var(--border-radius-lg)",
+                      }}>
+                      Şimdi kayıt olun
+                    </Button>
+                  ) : (
+                    <Button
+                      style={{
+                        justifyContent: "space-between",
+                        borderRadius: "var(--border-radius-lg)",
+                      }}>
+                      Şimdi kayıt olun
+                    </Button>
+                  )}
                 </div>
               );
             },

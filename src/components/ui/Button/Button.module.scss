@@ -8,15 +8,15 @@ $btn-themes: (
     border: var(--btn-color),
     hover-bg: #ffffff,               // الخلفية تصبح بيضاء عند الهوفر
     hover-border: var(--btn-color),
-    hover-color: var(--color-black-hover)    // النص يتغير ليتناسب مع الخلفية البيضاء
+    hover-color: var(--btn-color)    // النص يتغير ليتناسب مع الخلفية البيضاء
   ),
   "primary": (
     bg: var(--color-primary),
     color: #ffffff,
     border: transparent,
-    hover-bg: var(--color-primary-hover),
-    hover-border: transparent,
-    hover-color: #ffffff             // يظل النص أبيض لأن الخلفية داكنة
+    hover-bg: var(--color-white),
+    hover-border: var(--color-primary),
+    hover-color: var(--color-primary)             // يظل النص أبيض لأن الخلفية داكنة
   ),
   "secondary": (
     bg: transparent,
@@ -31,14 +31,15 @@ $btn-themes: (
     color: #ffffff,                  // النص أبيض على خلفية سوداء
     border: #000000,
     hover-bg: #ffffff,               // عند الهوفر الخلفية بيضاء
+    // color: #ffffff,
     hover-border: #000000,
-    hover-color: #000000             // النص ينعكس ليصبح أسود
+    hover-color: #000000,             // النص ينعكس ليصبح أسود
   )
 );
 
 // 2. الكلاس الأساسي للزر
 .btn {
-  border: 2px dashed transparent;
+  border: 2px solid transparent;
   border-radius: var(--border-radius-sm);
   font-family: Inter, "IBM Plex Sans Arabic", sans-serif;
   font-weight: 500;
@@ -58,7 +59,7 @@ $btn-themes: (
       transform: translateZ(0);
 
       &::before {
-        content: attr(data-title);
+        content: attr(data-title) ;
         position: absolute;
         top: 100%;
         left: 0;
@@ -69,7 +70,7 @@ $btn-themes: (
   }
 
   .svg {
-    padding: var(--space-xs);
+    padding: calc(var(--space-xxs) - 2px);
     background-color: #fff;
     border-radius: var(--border-radius-sm);
     @include btn.flex-row(center, center, 0);
@@ -88,6 +89,7 @@ $btn-themes: (
 
     svg {
       transform: rotate(40deg);
+      color: var(--btn-color);
     }
   }
 
@@ -98,13 +100,14 @@ $btn-themes: (
       color: map-get($colors, color);
       
       @if map-get($colors, border) != transparent {
-        border: 2px dashed map-get($colors, border);
+        border: 2px solid map-get($colors, border);
       }
 
       // ضبط لون النص التأثيري (الـ التموضع السفلي) قبل الهوفر ليطابق لون الزر الأصلي
-      .first .data-title::before {
+       .svg svg, .first .data-title::before {
         color: map-get($colors, hover-color);
       }
+
 
       &:hover {
         background-color: map-get($colors, hover-bg);
@@ -118,6 +121,7 @@ $btn-themes: (
   }
 
   // 4. الأحجام
-  &.small { padding: 6px 6px; font-size: 14px; }
-  &.medium { padding: 10px 10px; font-size: 16px; }
+  &.small { padding: 3px 3px; font-size: 14px; }
+  &.medium { padding: 8px 8px; font-size: 16px; }
+  &.large {padding: 12px 12px; font-size: 18px;}
 }

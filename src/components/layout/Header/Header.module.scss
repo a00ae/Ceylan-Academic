@@ -47,7 +47,7 @@
     }
 
     a {
-      @include v.typography-style(sm, main, text-color);
+      @include v.typography-style(sm, bold, text-color);
       display: inline-block; // تحويل العنصر ليقبل التعديلات على الأبعاد والتحويلات
       text-transform: capitalize;
 

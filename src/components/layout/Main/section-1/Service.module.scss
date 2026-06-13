@@ -19,10 +19,9 @@
     }
 
     h2 {
-      @include service.typography-style(xl, bold, heading-color);
+      @include service.typography-style(xxl, bold, text-color);
       margin-bottom: var(--space-md);
       text-transform: capitalize;
-      color: var(--heading-color);
     }
     p {
       width: 30%;

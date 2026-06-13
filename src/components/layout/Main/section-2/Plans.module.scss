@@ -1,27 +1,39 @@
 @use "../../../../styles/variables" as v;
+
 .plans {
   @include v.container-padding-box;
+  background-color: var(--color-white);
+  font-family: "Geist", sans-serif;
   &_container {
-    @include v.flex-column(md);
+    @include v.flex-column(lg);
   }
+
   &_card {
-    @include v.flex-row(center, center, md);
+    @include v.flex-row(center, stretch, sm);
     width: 100%;
+
     .price-card {
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-sm);
+      background-color: var(--bg-color-card);
+      border: 1px solid transparent;
+      border-radius: var(--border-radius-xl);
       padding: var(--space-sm);
+      box-shadow: var(--box-shadow-main);
       flex: 1;
       @include v.flex-column(md);
+
       .top {
         @include v.flex-column(sm);
+
         .title {
           @include v.flex-row(space-between);
+
           span[data-plans] {
-            @include v.typography-style(md, bold, text-color);
+            @include v.typography-style(md, main, text-color);
           }
+
           .check-box {
             @include v.flex-row(center, center, sm);
+
             .switch {
               position: relative;
               width: 50px;
@@ -33,6 +45,7 @@
                 width: 0;
                 height: 0;
               }
+
               :global(.slider) {
                 position: absolute;
                 right: 0;
@@ -40,9 +53,10 @@
                 left: 0;
                 top: 0;
                 cursor: pointer;
-                background-color: var(--text-color);
+                background-color: var(--color-white);
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
+
                 &::before {
                   content: "";
                   position: absolute;
@@ -59,6 +73,7 @@
               & input:checked + :global(.slider) {
                 background-color: var(--btn-color);
               }
+
               & input:focus + :global(.slider) {
                 box-shadow: 0 0 1px #fc404057;
               }
@@ -67,7 +82,7 @@
                 -webkit-transform: translateX(25px);
                 -ms-transform: translateX(25px);
                 transform: translateX(25px);
-                background-color: var(--text-color, white);
+                background-color: var(--color-white, white);
               }
 
               // Rounded sliders
@@ -78,39 +93,78 @@
                 border-radius: 50%;
               }
             }
+
             & p {
-              @include v.typography-style(sm, bold, text-color);
+              @include v.typography-style(sm, main, text-color-grey);
             }
           }
         }
-        .price-componints {
-          @include v.flex-row(center, end, sm);
-          p:first-child {
-            @include v.typography-style(lg, bold, text-color);
+
+        .price-components {
+          @include v.flex-row(center, flex-end, sm);
+
+          .price-wrapper {
+            display: flex;
+            overflow: hidden;
+            padding: 0 var(--space-xs);
+            span[data-price] {
+              @include v.typography-style(xl, bold, text-color);
+              position: relative;
+              backface-visibility: hidden;
+              transform: translateZ(0);
+              transition: transform var(--transition-main);
+              white-space: nowrap;
+              // padding: 0 var(--space-sm);
+              &::before {
+                content: attr(data-price);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                @include v.typography-style(xl, bold, text-color);
+                color: var(--btn-color, #ff0000);
+              }
+            }
+          } // 👈 تم إغلاق price-wrapper هنا بشكل صحيح
+
+          &.yearly {
+            .price-wrapper span[data-price] {
+              transform: translateY(-100%);
+            }
           }
-          span {
-            @include v.typography-style(sm, main, text-color-grey);
+          .price-period {
+            @include v.typography-style(sm, main, text-color);
+            span{
+              color: var(--text-color-grey)
+
+            }
           }
+
         }
         .price_desc {
-          @include v.typography-style(sm, main, text-color);
+          @include v.typography-style(sm, bold, text-color-grey);
         }
-      }
+      } // 👈 تم إغلاق كلاس top هنا
+
       .dashed {
         width: 100%;
         border-bottom: 1px dashed var(--text-color);
       }
+
       .middle {
         @include v.flex-column(md);
+
         p[data-features] {
-          @include v.typography-style(sm, bold, text-color-grey-400)
+          @include v.typography-style(sm, bold, text-color-grey-400);
         }
+
         .features {
           @include v.flex-column(sm);
+
           .features-card {
             @include v.flex-row(flex-start, center, xs);
+
             svg {
-              @include v.typography-style(sm, main, btn-color)
+              @include v.typography-style(sm, main, color-primary);
             }
             p {
               @include v.typography-style(xs, main, text-color);
@@ -118,6 +172,16 @@
           }
         }
       }
-    }
-  }
-}
+
+      &.basic {
+        // يمكنك وضع تنسيقات الكارت الـ basic هنا
+      }
+      &.premium {
+        border-color: var(--text-color);
+        border-style: dashed;
+        background-color: var(--color-white);
+
+      }
+    } // 👈 تم إغلاق price-card هنا
+  } // 👈 تم إغلاق _card هنا
+} // 👈 تم إغلاق .plans الأساسي هنا
