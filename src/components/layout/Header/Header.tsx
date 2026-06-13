@@ -3,7 +3,7 @@ import {RiGraduationCapFill } from "@remixicon/react"
 // إذا كنت تستخدم Vite، أضف ?react في نهاية المسار لاستيرادها كمكون
 // @ts-ignore
 import CeylanLogo from "../../../assets/logo/Ceylan-Language-Academi-Logo.svg?react";
-import Button from "../../ui/Button/Button";
+// import Button from "../../ui/Button/Button";
 
 const header: string[] = ["home", "price", "content", "about my"];
 
