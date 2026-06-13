@@ -23,7 +23,7 @@ const Header = () => {
           </li>
         ))}
       </ul>
-      <Button size="small">Get Started</Button>
+      {/* <Button  size="small">Get Started</Button> */}
     </header>
   );
 };

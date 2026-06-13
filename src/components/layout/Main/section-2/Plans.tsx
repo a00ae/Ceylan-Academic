@@ -38,8 +38,18 @@ const Plans = () => {
                   <div className={styles.top}>
                     {/* title */}
                     <div className={styles.title}>
-                      <span data-plans>{name}</span>
+                      <div className={styles["title_right"]}>
+                     <span data-plans>{name}</span>
+                    {type == "Premium" && <>
+                    <span data-break>|</span>
+                    <span data-popular>popüler</span>
+                    </>}
+
+                      </div>
+
                       {type !== "Professional" ? (
+                        <div className={styles["title_left"]}>
+
                         <div className={styles["check-box"]}>
                           <label className={styles.switch}>
                             <input
@@ -50,6 +60,7 @@ const Plans = () => {
                             <span className="slider round"></span>
                           </label>
                           <p>Ayilk</p>
+                        </div>
                         </div>
                       ) : null}
                     </div>
@@ -64,7 +75,7 @@ const Plans = () => {
                       </div>
 
                       <p className={styles["price-period"]}>
-                        / <span>{isYearly ? "Yıllık" : "Aylık"}</span>
+                        / Aylık
                       </p>
                     </div>
                     <div className={styles["price_desc"]}>

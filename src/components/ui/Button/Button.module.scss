@@ -70,7 +70,7 @@ $btn-themes: (
   }
 
   .svg {
-    padding: calc(var(--space-xxs) - 2px);
+    padding: calc(var(--space-xs) - 2px);
     background-color: #fff;
     border-radius: var(--border-radius-sm);
     @include btn.flex-row(center, center, 0);
@@ -122,6 +122,6 @@ $btn-themes: (
 
   // 4. الأحجام
   &.small { padding: 3px 3px; font-size: 14px; }
-  &.medium { padding: 8px 8px; font-size: 16px; }
+  &.medium { padding: 4px 8px; font-size: 16px; }
   &.large {padding: 12px 12px; font-size: 18px;}
 }

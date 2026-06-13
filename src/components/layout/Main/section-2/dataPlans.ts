@@ -23,7 +23,7 @@ export const DataPlans: DataPlans[] = [
   },
   {
     id: 2,
-    name: "Premium (en popüler)",
+    name: "Premium",
     type: "Premium",
     price: 5100,
     discount: 4850,

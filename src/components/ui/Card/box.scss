@@ -18,14 +18,14 @@
     }
   }
   &_desc {
-    @include v.typography-style(sm, bold, text-color)
+    @include v.typography-style(sm, bold, text-color-description)
   }
 }
 
 .box__title {
   @include v.flex-column(md, center);
   h2 {
-    @include v.typography-style(xxl, main, btn-color)
+    @include v.typography-style(xxl, main, text-color)
   }
 }
 

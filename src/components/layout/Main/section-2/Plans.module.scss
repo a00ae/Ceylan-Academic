@@ -11,12 +11,15 @@
   &_card {
     @include v.flex-row(center, stretch, sm);
     width: 100%;
+    @media (max-width: v.$width-xl) {
+      flex-direction: column;
+    }
 
     .price-card {
       background-color: var(--bg-color-card);
       border: 1px solid transparent;
       border-radius: var(--border-radius-xl);
-      padding: var(--space-sm);
+      padding: var(--space-md);
       box-shadow: var(--box-shadow-main);
       flex: 1;
       @include v.flex-column(md);
@@ -26,87 +29,98 @@
 
         .title {
           @include v.flex-row(space-between);
-
-          span[data-plans] {
-            @include v.typography-style(md, main, text-color);
+          &_right {
+            // @include v.typography-style(md, bold, text-color);
+            @include v.flex-row(start, center, xxs);
+            span[data-plans] {
+              @include v.typography-style(md, bold, text-color);
+            }
+            span[data-break] {
+              @include v.typography-style(md, bold, btn-color);
+            }
+            span {
+              @include v.typography-style(md, bold, text-color-grey);
+            }
           }
 
-          .check-box {
-            @include v.flex-row(center, center, sm);
+          &_left {
+            .check-box {
+              @include v.flex-row(center, center, sm);
 
-            .switch {
-              position: relative;
-              width: 50px;
-              height: 25px;
-              display: inline-block;
+              .switch {
+                position: relative;
+                width: 50px;
+                height: 25px;
+                display: inline-block;
 
-              & input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-              }
+                & input {
+                  opacity: 0;
+                  width: 0;
+                  height: 0;
+                }
 
-              :global(.slider) {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                top: 0;
-                cursor: pointer;
-                background-color: var(--color-white);
-                -webkit-transition: 0.4s;
-                transition: 0.4s;
-
-                &::before {
-                  content: "";
+                :global(.slider) {
                   position: absolute;
-                  width: 20px;
-                  height: 20px;
-                  left: 2px;
-                  bottom: 2.5px;
-                  background-color: #ccc;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  top: 0;
+                  cursor: pointer;
+                  background-color: var(--color-white);
                   -webkit-transition: 0.4s;
                   transition: 0.4s;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    left: 2px;
+                    bottom: 2.5px;
+                    background-color: #ccc;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+                }
+
+                & input:checked + :global(.slider) {
+                  background-color: var(--btn-color);
+                }
+
+                & input:focus + :global(.slider) {
+                  box-shadow: 0 0 1px #fc404057;
+                }
+
+                & input:checked + :global(.slider)::before {
+                  -webkit-transform: translateX(25px);
+                  -ms-transform: translateX(25px);
+                  transform: translateX(25px);
+                  background-color: var(--color-white, white);
+                }
+
+                // Rounded sliders
+                :global(.slider.round) {
+                  border-radius: 30px;
+                }
+                :global(.slider.round)::before {
+                  border-radius: 50%;
                 }
               }
 
-              & input:checked + :global(.slider) {
-                background-color: var(--btn-color);
+              & p {
+                @include v.typography-style(sm, main, text-color-grey);
               }
-
-              & input:focus + :global(.slider) {
-                box-shadow: 0 0 1px #fc404057;
-              }
-
-              & input:checked + :global(.slider)::before {
-                -webkit-transform: translateX(25px);
-                -ms-transform: translateX(25px);
-                transform: translateX(25px);
-                background-color: var(--color-white, white);
-              }
-
-              // Rounded sliders
-              :global(.slider.round) {
-                border-radius: 30px;
-              }
-              :global(.slider.round)::before {
-                border-radius: 50%;
-              }
-            }
-
-            & p {
-              @include v.typography-style(sm, main, text-color-grey);
             }
           }
         }
 
         .price-components {
-          @include v.flex-row(center, flex-end, sm);
+          @include v.flex-row(start, flex-end);
 
           .price-wrapper {
             display: flex;
             overflow: hidden;
-            padding: 0 var(--space-xs);
+            padding: 0 var(--space-xxs);
             span[data-price] {
               @include v.typography-style(xl, bold, text-color);
               position: relative;
@@ -114,14 +128,13 @@
               transform: translateZ(0);
               transition: transform var(--transition-main);
               white-space: nowrap;
-              // padding: 0 var(--space-sm);
               &::before {
                 content: attr(data-price);
                 position: absolute;
                 top: 100%;
                 left: 0;
                 @include v.typography-style(xl, bold, text-color);
-                color: var(--btn-color, #ff0000);
+                // color: var(--btn-color, #ff0000);
               }
             }
           } // 👈 تم إغلاق price-wrapper هنا بشكل صحيح
@@ -131,14 +144,6 @@
               transform: translateY(-100%);
             }
           }
-          .price-period {
-            @include v.typography-style(sm, main, text-color);
-            span{
-              color: var(--text-color-grey)
-
-            }
-          }
-
         }
         .price_desc {
           @include v.typography-style(sm, bold, text-color-grey);
@@ -154,7 +159,7 @@
         @include v.flex-column(md);
 
         p[data-features] {
-          @include v.typography-style(sm, bold, text-color-grey-400);
+          @include v.typography-style(xs, main, text-color-description);
         }
 
         .features {
@@ -180,7 +185,6 @@
         border-color: var(--text-color);
         border-style: dashed;
         background-color: var(--color-white);
-
       }
     } // 👈 تم إغلاق price-card هنا
   } // 👈 تم إغلاق _card هنا
