@@ -15,7 +15,7 @@ export const gridData: GridCard[] = [
   {
     id: "card-1",
     type: "intro",
-    title: "Ceylan — Acadmi",
+    title: "Ceylan ー Akademisi",
     tagline: "Celan, öğrencileri arasında iyi bir üne sahip..",
     // footer: "Play Showreel"
   },

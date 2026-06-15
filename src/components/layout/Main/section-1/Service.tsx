@@ -1,21 +1,30 @@
-import styles from "./Service.module.scss";
-import ArbiacLanguage from "../../../../assets/service/language-ar-1.png";
+// import { SERVICE_IMAGES } from "";
+import { SERVICE_IMAGES } from "@/assets/service/imges";
+import ceylan from "@/assets/service/ceylan.drawio.svg";
+import ig from "@/assets/service/ig.drawio.svg";
 import { BentoGrid } from "../../../ui/Card/BentoGrid";
-
+import styles from "./Service.module.scss";
 const Service = () => {
   return (
     <section className={styles["service"]}>
       <div className={styles["service_container"]}>
         <div className={styles["service_text-desc"]}>
-          <h2>Arapça — öğrenin</h2>
+          <h2>Ceylan ile — dili öğrenin</h2>
           <p>
-            - Şimdi kayıt olun ve her seviyedeki Arapça dil kurslarında{" "}
-            <span>%50 indirimden yararlanın. </span>
+            Şimdi kaydolun ve tüm seviyelerdeki tüm dil kurslarında{" "}
+            <span>%50 indirim kazanın. </span>
           </p>
         </div>
         <div className={styles["service_img"]}>
           <div className={styles["service_img_box-img"]}>
-            <img draggable={false} src={ArbiacLanguage} alt="Arapça öğrenin" />
+            <img className={styles["ceylan"]} src={ceylan} alt="dil kurs" />
+            <img className={styles["ig"]} src={ig} alt="dil kurs" />
+            <img className={styles["ar-primary"]} draggable={false} src={SERVICE_IMAGES.ar.primary} alt="Arapça öğrenin" />
+            <img className={styles["ar-secondary"]} draggable={false} src={SERVICE_IMAGES.ar.secondary} alt="Arapça öğrenin" />
+            <img className={styles["en-secondary"]} draggable={false} src={SERVICE_IMAGES.en.secondary} alt="Arapça öğrenin" />
+            <img className={styles["en-primary"]} draggable={false} src={SERVICE_IMAGES.en.primary} alt="Arapça öğrenin" />
+            <img className={styles["ar-secondary"]} draggable={false} src={SERVICE_IMAGES.fr.secondary} alt="Arapça öğrenin" />
+            <img className={styles["ar-primary"]} draggable={false} src={SERVICE_IMAGES.fr.primary} alt="Arapça öğrenin" />
           </div>
           <div className={styles["service_img_specifications"]}>
             <div className={styles["service_specifications-desc"]}>

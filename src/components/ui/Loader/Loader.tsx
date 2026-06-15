@@ -3,7 +3,7 @@ interface Props {
 }
 
 const Loader = (props: Props) => {
-  const text = "CEYLAN DIL ACADEMY";
+  const text = "Ceylan Dil Akademisi";
 
   // مدة حركة كل حرف فردي
   const letterDuration = 0.5;
@@ -20,7 +20,7 @@ const Loader = (props: Props) => {
           top: "0",
           width: "100%",
           height: props.loading ? "100vh" : "0vh",
-          backgroundColor: "var(--text-color)",
+          backgroundColor: "var(--bg-color-default)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
