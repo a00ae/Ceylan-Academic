@@ -6,9 +6,9 @@ import Heading from "../../../ui/Card/Heading";
 import { DataPlans } from "./dataPlans";
 import styles from "./Plans.module.scss";
 import { RiCheckboxCircleLine } from "@remixicon/react";
-
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Plans = () => {
-  // نستخرج كائن الـ plans المباشر
+  const [containerRef, isVisible] = useScrollAnimation(0.1); // نستخرج كائن الـ plans المباشر
   const { plans } = pageData;
   const [checkedPlans, setCheckedPlans] = useState<Record<string, boolean>>({});
 
@@ -21,11 +21,13 @@ const Plans = () => {
 
   return (
     <section className={styles.plans}>
-      <Box {...plans} />
-      <div className={styles["plans_container"]}>
+      <div
+        ref={containerRef}
+        className={`${styles["plans_container"]} ${isVisible ? styles.visible : ""}`}>
         {/* نمرر الكائن مباشرة بدون map */}
+      <Box {...plans} />
 
-        <Heading {...plans} />
+        <Heading {...plans} animate={isVisible} />
 
         <div className={styles["plans_card"]}>
           {DataPlans.map(
@@ -39,28 +41,28 @@ const Plans = () => {
                     {/* title */}
                     <div className={styles.title}>
                       <div className={styles["title_right"]}>
-                     <span data-plans>{name}</span>
-                    {type == "Premium" && <>
-                    <span data-break>|</span>
-                    <span data-popular>popüler</span>
-                    </>}
-
+                        <span data-plans>{name}</span>
+                        {type == "Premium" && (
+                          <>
+                            <span data-break>|</span>
+                            <span data-popular>popüler</span>
+                          </>
+                        )}
                       </div>
 
                       {type !== "Professional" ? (
                         <div className={styles["title_left"]}>
-
-                        <div className={styles["check-box"]}>
-                          <label className={styles.switch}>
-                            <input
-                              checked={isYearly}
-                              onChange={() => togglePlan(name)}
-                              type="checkbox"
-                            />
-                            <span className="slider round"></span>
-                          </label>
-                          <p>Ayilk</p>
-                        </div>
+                          <div className={styles["check-box"]}>
+                            <label className={styles.switch}>
+                              <input
+                                checked={isYearly}
+                                onChange={() => togglePlan(name)}
+                                type="checkbox"
+                              />
+                              <span className="slider round"></span>
+                            </label>
+                            <p>Ayilk</p>
+                          </div>
                         </div>
                       ) : null}
                     </div>
@@ -74,9 +76,7 @@ const Plans = () => {
                         </span>
                       </div>
 
-                      <p className={styles["price-period"]}>
-                        / Aylık
-                      </p>
+                      <p className={styles["price-period"]}>/ Aylık</p>
                     </div>
                     <div className={styles["price_desc"]}>
                       <p>{desc}</p>{" "}

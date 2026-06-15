@@ -65,8 +65,8 @@ const Service = () => {
           </div>
           <div className={styles["service_img_specifications"]}>
             <div className={styles["service_specifications-desc"]}>
-              Küresel iletişim ve kariyerinizde ilerlemek için Arapçanın
-              temellerini öğrenin.
+              Küresel iletişim ve mesleki gelişim için Arapça, İngilizce ve
+              Fransızca'nın temellerini öğrenin.
             </div>
             <BentoGrid />
           </div>

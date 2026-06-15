@@ -23,7 +23,7 @@ export const pageData: FullPageDataType = {
     id: 1,
     title: "Planlar",
     desc: "@2026 - Sınırlı özellikler",
-    heading: "Mevcut planlar"
+    heading: "Mevcut Diller"
   },
   prices: {
     id: 1,
