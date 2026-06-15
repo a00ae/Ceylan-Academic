@@ -54,14 +54,15 @@
       width: 80%;
       overflow: hidden;
       max-height: 610px;
+      position: relative;
+      @include service.flex-row(center, center);
       @media (max-width: service.$width-xxl) {
         width: 100%;
         max-height: max-content;
       }
-
       img {
         // 3. نجعل الصورة تأخذ 100% من العرض والارتفاع المتاحين لها من الأب الداعم
-        width: 100%;
+        // width: 100%;
 
         // 4. cover تضمن تغطية المساحة بالكامل بدون تشويه الأبعاد (تُقص الأطراف الزائدة تلقائيًا)
         object-fit: contain;
@@ -74,6 +75,71 @@
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* IE/Edge القديم */
+      }
+      .container_img {
+        width: 100%;
+        @include service.flex-column(sm);
+
+        .ceylan-dil {
+          width: 100%;
+          position: relative;
+          @include service.flex-row(center, center);
+          @media (max-width: service.$width-xl) {
+            display: none;
+          }
+          .ceylan {
+            width: calc(100% - 10px );
+            margin: auto;
+          }
+          .ig {
+            position: absolute;
+            top: 34%;
+            width: calc(100% / 8);
+
+            // 1. الحالة الأصلية: العنصر مخفي تماماً عند تحميل الصفحة
+            opacity: 1;
+            right: 20%;
+
+            // 2. إعدادات الأنميشن
+            // الوقت الإجمالي (مثلاً 6s)، ينتظر اللودينج (مثلاً 2s)، يعمل مرة واحدة ويثبت على آخر حالة وهي الاختفاء (forwards)
+            animation-name: slidePauseAndFade;
+            animation-duration: 6s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 6s; // عدل هذا الوقت بناءً على مدة الـ Loading في موقعك
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+
+            // السطر المختصر البديل:
+            // animation: slidePauseAndFade 6s ease-in-out 2s 1 forwards;
+          }
+
+          /* 3. تعريف الأنميشن (Scenario) */
+          @keyframes slidePauseAndFade {
+            // الحالة الأولى (عند البداية مباشرة): يظهر العنصر عند الـ 10%
+            0% {
+              right: 20%;
+              opacity: 1;
+            }
+
+            // الخطوة الأولى: يتوقف العنصر تماماً عند الـ 10% قليلاً (حتى 20% من الوقت)
+            20% {
+              right: 20%;
+              opacity: 1;
+            }
+
+            // الخطوة الثانية: يبدأ بالتحرك بسرعة موحدة وسلسة ليصل إلى الـ 60% (في نهاية حركته)
+            85% {
+              right: 62%;
+              opacity: 1; // لا يزال ظاهراً بوضوح
+            }
+
+            // الخطوة النهائية (النهاية): يختفي تماماً وهو في مكانه عند الـ 60%
+            100% {
+              right: 62%;
+              opacity: 0; // يختفي للأبد بسبب forwards
+            }
+          }
+        }
       }
     }
     &_specifications {
