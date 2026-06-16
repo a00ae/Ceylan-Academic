@@ -26,6 +26,14 @@ $btn-themes: (
     hover-border: var(--color-secondary-hover),
     hover-color: #ffffff             // يظل النص أبيض
   ),
+  "black": (
+  bg: var( --heading-color),
+  color: var(--color-white),
+  border: var(--heading-color),
+  hover-bg: var(--color-white),
+  hover-border: var(--heading-color),
+  hover-color: var(--heading-color),
+  ),
   "dark": ( // مثال إضافي لزر بخلفية سوداء يتحول لشفاف أو أبيض عند الهوفر
     bg: #000000,
     color: #ffffff,                  // النص أبيض على خلفية سوداء
@@ -56,7 +64,7 @@ $btn-themes: (
       transition: transform var(--transition-main);
       background-color: inherit;
       backface-visibility: hidden;
-      transform: translateZ(0);
+      transform: translateY(0);
 
       &::before {
         content: attr(data-title) ;
@@ -122,6 +130,6 @@ $btn-themes: (
 
   // 4. الأحجام
   &.small { padding: 3px 3px; font-size: 14px; }
-  &.medium { padding: 4px 8px; font-size: 16px; }
+  &.medium { padding: 4px 4px; font-size: 16px; }
   &.large {padding: 12px 12px; font-size: 18px;}
 }

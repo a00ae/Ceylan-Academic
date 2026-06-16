@@ -22,14 +22,16 @@ const Plans = () => {
   return (
     <section className={styles.plans}>
       <div
-        ref={containerRef}
+        // ref={containerRef}
         className={`${styles["plans_container"]} ${isVisible ? styles.visible : ""}`}>
         {/* نمرر الكائن مباشرة بدون map */}
-      <Box {...plans} />
+        <Box {...plans} />
 
         <Heading {...plans} animate={isVisible} />
 
-        <div className={styles["plans_card"]}>
+        <div
+        ref={containerRef}
+          className={`${styles["plans_card"]} ${isVisible ? styles.visible : ""}`}>
           {DataPlans.map(
             ({ id, type, name, price, discount, desc, features, currency }) => {
               const isYearly = !!checkedPlans[name];
@@ -50,21 +52,19 @@ const Plans = () => {
                         )}
                       </div>
 
-                      {type !== "Professional" ? (
-                        <div className={styles["title_left"]}>
-                          <div className={styles["check-box"]}>
-                            <label className={styles.switch}>
-                              <input
-                                checked={isYearly}
-                                onChange={() => togglePlan(name)}
-                                type="checkbox"
-                              />
-                              <span className="slider round"></span>
-                            </label>
-                            <p>Ayilk</p>
-                          </div>
+                      <div className={styles["title_left"]}>
+                        <div className={styles["check-box"]}>
+                          <label className={styles.switch}>
+                            <input
+                              checked={isYearly}
+                              onChange={() => togglePlan(name)}
+                              type="checkbox"
+                            />
+                            <span className="slider round"></span>
+                          </label>
+                          <p>Ayilk</p>
                         </div>
-                      ) : null}
+                      </div>
                     </div>
                     {/* price */}
                     <div
@@ -102,18 +102,20 @@ const Plans = () => {
                   {/* btn */}
                   {type === "Premium" ? (
                     <Button
-                      variant="primary"
+                      arrow={true}
+                      variant="black"
                       style={{
                         justifyContent: "space-between",
-                        borderRadius: "var(--border-radius-lg)",
+                        borderRadius: "var(--border-radius-md)",
                       }}>
                       Şimdi kayıt olun
                     </Button>
                   ) : (
                     <Button
+                      arrow={true}
                       style={{
                         justifyContent: "space-between",
-                        borderRadius: "var(--border-radius-lg)",
+                        borderRadius: "var(--border-radius-md)",
                       }}>
                       Şimdi kayıt olun
                     </Button>

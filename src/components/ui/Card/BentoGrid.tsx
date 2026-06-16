@@ -96,7 +96,7 @@ export function BentoGrid() {
                   <RiArrowRightUpLine />
                 </div>
               </a> */}
-              <Button>{card.title}</Button>
+              <Button arrow={true}>{card.title}</Button>
             </>
           )}
         </div>

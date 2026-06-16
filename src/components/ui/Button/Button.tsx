@@ -3,10 +3,12 @@ import styles from "./Button.module.scss";
 interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: "default" | "primary" | "secondary" | "danger" | "black"; // تحديد أشكال الزر
   size?: "small" | "medium" | "large";
+  arrow?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  arrow = false,
   variant = "default",
   size = "medium",
   className = "",
@@ -20,9 +22,11 @@ const Button: React.FC<ButtonProps> = ({
           {children}
         </span>
       </div>
-      <div className={styles.svg}>
-        <RiArrowRightUpLine />
-      </div>
+      {arrow && (
+        <div className={styles.svg}>
+          <RiArrowRightUpLine />
+        </div>
+      )}
     </a>
   );
 };

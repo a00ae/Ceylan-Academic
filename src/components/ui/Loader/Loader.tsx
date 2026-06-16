@@ -37,6 +37,7 @@ const Loader = (props: Props) => {
             {text.split("").map((char, index) => (
               <span
                 style={{
+                  // backgroundColor: "var(--color-white)",
                   fontSize: "100px",
                   display: "inline-block",
                   opacity: props.loading ? "1" : "0",
