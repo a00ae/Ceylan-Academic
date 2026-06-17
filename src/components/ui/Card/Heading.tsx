@@ -4,35 +4,65 @@ type Props = {
   heading?: string;
   titleDescription?: string;
   animate?: boolean;
+  isAnimation: boolean;
 };
 
-const Heading = (props: Props) => {
+const Heading = ({
+  animate,
+  heading,
+  titleDescription,
+  isAnimation = false,
+}: Props) => {
   const animation_delay = 0.05;
+  console.log(animate);
+
   return (
     <div className="box__title">
-      {props.heading && props.heading ? (
+      {heading && heading ? (
         <h2>
-          {props.heading.split("").map((ele, i) => (
-            <span
-              className={`reveal-char ${props.animate ? "start-animation" : ""}`}
-              style={{
-                animationDelay: `${i * animation_delay}s`,
-                // إذا كان الحرف مسافة فارغة، نضمن حفظ المساحة في المتصفح
-                display: ele === " " ? "inline" : "inline-block",
-              }}
-              key={i}>
-              {ele === " " ? "\u00A0" : ele}
-            </span>
-          ))}
+          {isAnimation
+            ? heading.split(" ").map((word, i) => {
+                const isSpecial = [
+                  "tarafından",
+                  "öğretilen",
+                  "müfredat",
+                ].includes(word.toLowerCase());
+                if (isSpecial) {
+                  return (
+                    <span style={{ color: "#0126" }} key={i}>
+                      {word.split("").map((prev) => (
+                        <span
+                          className={`reveal-char ${animate ? "start-animation" : ""}`}>
+                          {prev}
+                        </span>
+                      ))}
+                      &nbsp;
+                    </span>
+                  );
+                }
+                return (
+                  <span key={i} style={{ display: "inline-block" }}>
+                    {word.split("").map((char, charIndex) => (
+                      <span
+                        key={charIndex}
+                        className={`reveal-char ${animate ? "start-animation" : ""}`}
+                        style={{
+                          animationDelay: `${(i * 5 + charIndex) * animation_delay}s`,
+                          display: "inline-block",
+                        }}>
+                        {char}
+                      </span>
+                    ))}
+                    <span>&nbsp;</span>
+                  </span>
+                );
+              })
+            : heading}
         </h2>
       ) : (
         ""
       )}
-      {props.titleDescription && props.titleDescription ? (
-        <p>{props.titleDescription}</p>
-      ) : (
-        ""
-      )}
+      {titleDescription && titleDescription ? <p>{titleDescription}</p> : ""}
     </div>
   );
 };

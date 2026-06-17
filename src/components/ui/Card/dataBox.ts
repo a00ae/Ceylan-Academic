@@ -8,14 +8,14 @@ export interface BoxItemType {
   title: string;
   desc?: string;
   heading?: string;
-  titleDescription?: string; 
+  titleDescription?: string;
   card?: PlansCard[]; // تركتها مصفوفة هنا لأن الكرت نفسه قد يحتوي على عدة أسعار بالداخل
 }
 
 // الواجهة الخاصة بالأوبجيكت الكبير (بدون مصفوفات للأقسام)
 interface FullPageDataType {
-  plans: BoxItemType;  // كائن واحد مباشر
-  prices: BoxItemType; // كائن واحد مباشر
+  plans: BoxItemType; // كائن واحد مباشر
+  curriculum: BoxItemType; // كائن واحد مباشر
 }
 
 export const pageData: FullPageDataType = {
@@ -23,17 +23,12 @@ export const pageData: FullPageDataType = {
     id: 1,
     title: "Planlar",
     desc: "@2026 - Sınırlı özellikler",
-    heading: "Mevcut Diller"
+    heading: "Mevcut Diller",
   },
-  prices: {
-    id: 1,
-    title: "Fyiat",
-    desc: "plans",
-    card: [
-      {
-        pricePelan: "15$",
-        desc: "وصف السعر الأول",
-      },
-    ],
+  curriculum: {
+    id: 2,
+    title: "Müfredat",
+    desc: "@2026",
+    heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
   },
 };

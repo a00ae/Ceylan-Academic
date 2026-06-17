@@ -25,7 +25,8 @@
 .box__title {
   @include v.flex-column(md, center);
   h2 {
-    @include v.flex-row(start, center, xxs);
+    @include v.flex-row(start, center, xxxxs);
+    flex-wrap: wrap;
     @include v.typography-style(xxl, main, text-color);
   }
   .reveal-char {

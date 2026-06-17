@@ -34,6 +34,14 @@ $btn-themes: (
   hover-border: var(--heading-color),
   hover-color: var(--heading-color),
   ),
+  "outline": (
+    bg: transparent,
+    color: var(--heading-color),
+    border: var(--heading-color),
+    hover-bg: var(--heading-color),
+    hover-border: var(--heading-color),
+    hover-color: var(--color-white),
+  ),
   "dark": ( // مثال إضافي لزر بخلفية سوداء يتحول لشفاف أو أبيض عند الهوفر
     bg: #000000,
     color: #ffffff,                  // النص أبيض على خلفية سوداء

@@ -27,7 +27,7 @@ const Plans = () => {
         {/* نمرر الكائن مباشرة بدون map */}
         <Box {...plans} />
 
-        <Heading {...plans} animate={isVisible} />
+        <Heading isAnimation={true} {...plans} animate={isVisible} />
 
         <div
         ref={containerRef}

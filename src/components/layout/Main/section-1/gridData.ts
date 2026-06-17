@@ -42,3 +42,43 @@ export const gridData: GridCard[] = [
   }
 ];
 
+export interface BtnService {
+  id: string;
+  text: string;
+  variant:  "default" | "primary" | "secondary" | "danger" | "black" | "outline";
+}
+
+export interface CardService {
+  id: number;
+  type: string;
+  title: string;
+  animation: string
+}
+
+export const CARD_SERVICE: CardService[] = [
+  {
+    id: 1,
+    type:"top-title",
+    title: "Şimdi katılın ve indirimden yararlanın.",
+    animation: ""
+  },
+  {
+    id: 2,
+    type:"heading-large",
+    title: "Şimdi katılın ve indirimden yararlanın.",
+    animation: ""
+  },
+  {
+    id: 3,
+    type:"description",
+    title: "Şimdi katılın ve indirimden yararlanın.",
+    animation: ""
+  },
+  {
+    id: 4,
+    type:"btn",
+    title: "Şimdi katılın ve indirimden yararlanın.",
+    animation: ""
+  },
+]
+

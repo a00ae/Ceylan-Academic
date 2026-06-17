@@ -1,0 +1,14 @@
+@use "../../../../styles/variables" as v;
+
+.curriculum {
+  @include v.container-padding-box;
+  &_container {
+    @include v.flex-column(md);
+    :global(.box) {
+      @include v.flex-column(xxs);
+      :global(.box_desc) {
+        transform: translateX(37px);
+      }
+    }
+  }
+}

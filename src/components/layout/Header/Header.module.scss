@@ -18,21 +18,10 @@
     align-items: center;
     position: relative;
     cursor: pointer;
-    .edction {
-      color: var(--color-primary-hover);
-      position: absolute;
-      top: -7px;
-      left: 20px;
-    }
 
-    .mainLogo {
-      width: 170px;
-      height: auto;
-      overflow: hidden;
+    .main-logo {
+      @include v.typography-style(lg, bold, heading-color)
 
-      g {
-        fill: var(--btn-color);
-      }
     }
   }
   &_nav {

@@ -14,7 +14,7 @@
     will-change: transform, opacity;
     &.visible {
       transform: translateY(0);
-      opacity: 1 !important;
+      opacity: 1 !important; 
     }
   }
 

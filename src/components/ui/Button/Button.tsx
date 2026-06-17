@@ -1,7 +1,7 @@
 import { RiArrowRightUpLine } from "@remixicon/react";
 import styles from "./Button.module.scss";
 interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: "default" | "primary" | "secondary" | "danger" | "black"; // تحديد أشكال الزر
+  variant?: "default" | "primary" | "secondary" | "danger" | "black" | "outline"; // تحديد أشكال الزر
   size?: "small" | "medium" | "large";
   arrow?: boolean;
 }
