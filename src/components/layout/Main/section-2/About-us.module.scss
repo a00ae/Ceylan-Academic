@@ -1,0 +1,69 @@
+@use "../../../../styles/variables" as v;
+
+.about-us {
+  @include v.container-padding-box(color-white);
+  &_container {
+    transform: translateY(60px);
+    opacity: 0;
+    transition:
+      transform 0.8s ease-in,
+      opacity var(--transition-main);
+    @include v.flex-column(xl);
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  &_title {
+    :global(.box__title) {
+      flex-direction: row;
+      width: 30%;
+      h2 {
+        @include v.typography-style(lg, bold, text-color);
+        align-items: start;
+      }
+    }
+    @include v.flex-row(space-between, center, sm);
+    &_desc {
+      width: 40%;
+      @include v.typography-style(sm, main, text-color-grey);
+    }
+  }
+  &_video {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius-xl);
+    transition: filter var(--transition-main);
+    cursor: pointer;
+    position: relative;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+    &_play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: var(--text-color-grey);
+      border-radius: 50%;
+      .play-icon {
+        opacity: 0;
+        width: 50px;
+        height: 50px;
+        transition: opacity var(--transition-lg) ease-in-out;
+        fill: var(--text-color-grey); /* أيقونات ريمكس تستخدم fill أو color */
+      }
+
+    }
+
+    &:hover {
+      img {
+        filter: blur(2px);
+      }
+      .play-icon {
+        opacity: 1;
+      }
+
+    }
+  }
+}

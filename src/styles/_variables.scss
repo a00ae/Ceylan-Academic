@@ -59,7 +59,8 @@
   --box-shadow-btn: 0 0 0 0 #000;
   --box-shadow-main: 0 1px 1px 0 rgb(255 255 255 / 5%);
   --box-shadow-header: 0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
-  --transition-main: 0.3s ease;
+  --transition-main: 0.3s ;
+  --transition-lg: 0.5s;
 }
 
 // Breakpoints
@@ -89,13 +90,15 @@ $width-xxl: 1400px;
 }
 
 // ميكسين الحاوية الكبرى مع تصحيح ألوان الخلفية لتناسب لون النص
-@mixin container-padding-box {
+@mixin container-padding-box($bg-color: "bg-color-default") {
   padding-left: var(--space-md);
   padding-right: var(--space-md);
   padding-top: var(--space-xxl);
   padding-bottom: var(--space-xl);
   width: 100%;
-  background-color: var(--bg-color-default); // استخدمنا الخلفية الافتراضية الداكنة للموقع
+  @if $bg-color != null {
+    background-color: var(--#{$bg-color});
+  }
 
   @media (max-width: $width-md) {
     padding-left: var(--space-xs);

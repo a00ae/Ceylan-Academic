@@ -1,7 +1,8 @@
-import Service from "./section-1/Service.tsx";
 import { memo } from "react";
-import Plans from "./section-4/Plans.tsx";
+import Service from "./section-1/Service.tsx";
+import AboutUs from "./section-2/About-us.tsx";
 import Curriculum from "./section-3/Curriculum.tsx";
+import Plans from "./section-4/Plans.tsx";
 
 const Main = () => {
   return (
@@ -12,8 +13,9 @@ const Main = () => {
         gap: "var(--gap-md)",
       }}>
       <Service />
-      <Plans />
+      <AboutUs />
       <Curriculum />
+      <Plans />
     </div>
   );
 };

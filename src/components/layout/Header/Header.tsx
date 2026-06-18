@@ -1,11 +1,11 @@
 import styles from "./Header.module.scss";
 // إذا كنت تستخدم Vite، أضف ?react في نهاية المسار لاستيرادها كمكون
 // @ts-ignore
-import CeylanLogo from "../../../assets/logo/Ceylan-Language-Academi-Logo.svg?react";
+// import CeylanLogo from "../../../assets/logo/Ceylan-Language-Academi-Logo.svg?react";
 import Button from "../../ui/Button/Button";
 import LesilingoLogo from "./LesilingoLogo";
 
-const header: string[] = ["home", "price", "content", "about my"];
+const header: string[] = ["ana sayfa", "Planlar", "içerik", "Hakkımızda"];
 
 const Header = () => {
   return (
@@ -24,7 +24,7 @@ const Header = () => {
           </li>
         ))}
       </ul>
-      <Button variant="black" size="large">Get Started</Button>
+      <Button variant="black" size="large">Fiyat teklifi alın</Button>
     </header>
   );
 };
