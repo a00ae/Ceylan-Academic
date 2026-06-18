@@ -1,4 +1,4 @@
-import Box from "@/components/ui/Card/Box";
+import Box from "@/components/ui/Card/Box-Heading/Box";
 import styles from "./Curriculum.module.scss";
 import { pageData } from "@/components/ui/Card/dataBox";
 import Heading from "@/components/ui/Card/Heading";

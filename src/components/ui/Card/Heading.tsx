@@ -30,8 +30,10 @@ const Heading = ({
                 if (isSpecial) {
                   return (
                     <span style={{ color: "#0126" }} key={i}>
-                      {word.split("").map((prev) => (
+                      {word.split("").map((prev, charIndex) => (
                         <span
+                        key={charIndex}
+                        style={{animationDelay: `${(i * 5 + charIndex) * animation_delay}s`}}
                           className={`reveal-char ${animate ? "start-animation" : ""}`}>
                           {prev}
                         </span>

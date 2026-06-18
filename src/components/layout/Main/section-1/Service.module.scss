@@ -8,7 +8,19 @@
     @include service.flex-column(md, center);
     // 1. نضمن أن العناصر داخل الحاوية تتمدد لتأخذ نفس الطول الكامل للحاوية
   }
-  &_top-title {
+  [class*="service_item_"] {
+    opacity: 0; // تبدأ العناصر مخفية
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; // الحفاظ على الحالة النهائية بعد انتهاء الحركة
+
+    // احتساب التأخير تلقائياً:
+    // العنصر الأول (index 0) -> 0 * 0.25s = 0s (يبدأ فوراً)
+    // العنصر الثاني (index 1) -> 1 * 0.25s = 0.25s
+    // العنصر الثالث (index 2) -> 2 * 0.25s = 0.5s
+    animation-delay: calc(6s + var(--item-index) * 0.25s);
+  }
+  &_item_top-title {
     @include service.typography-style(sm, main, text-color);
     padding: var(--space-xxs) var(--space-sm);
     position: relative;
@@ -16,71 +28,64 @@
     cursor: pointer;
     border: 2px solid var(--text-color-grey-400);
     border-radius: var(--border-radius-xl);
-
-    // svg {
-    //   width: 99%;
-    //   height: 99%;
-
-    //   rect {
-    //     top: 0;
-    //     left: 0;
-    //     position: absolute;
-    //     fill: none;
-    //     stroke-width: 4px;
-    //     vector-effect: non-scaling-stroke;
-    //     stroke-linejoin: round;
-    //     x: 0;
-    //     y: 0;
-    //     rx: 4;
-    //     width: 100%;
-    //     height: 100%;
-    //   }
-
-    //   // تنسيق الخط الخلفي الثابت
-    //   .bg-line {
-    //     stroke: var(--text-color-grey-400);
-    //   }
-    //   .animated-line {
-    //     stroke: var(--btn-color);
-    //     stroke-dasharray: 400;
-
-    //     // استدعاء الأنيميشن ليعمل بشكل مستمر وتلقائي
-    //     animation: drawBorder 4s linear infinite ;
-    //   }
-    // }
-
-    // السحر هنا: عند تمرير الماوس على الأب، نجعل الخط الأخضر يتدفق مكانه
-
   }
-  &_heading-large {
+  &_item_heading-large {
     @include service.typography-style(lg, main, text-color);
     width: 50%;
     text-align: center;
     text-transform: capitalize;
   }
-  &_description {
+  &_item_description {
     @include service.typography-style(md, main, text-color-grey-400);
     width: 50%;
     text-align: center;
   }
-  &_btn {
-    @include service.flex-row(center, center, xxs)
+  &_item_btn {
+    @include service.flex-row(center, center, xxs);
   }
 }
 
-// @keyframes drawBorder {
-//   0% {
-//     stroke-dashoffset: 400; // يبدأ وهو مخفي تماماً
-    
-//   }
-//   50% {
-//     stroke-dashoffset: 0;
-//     stroke: var(
-//       --color-primary
-//     ); // يكتمل رسمه بالكامل حول العنصر عند منتصف الوقت
-//   }
-//   100% {
-//     stroke-dashoffset: -400;
-//     stroke: var(--btn-color);// يستمر في الحركة للأمام ليختفي وينعش الدورة من جديد
-//   }
-// }
+.fly-in-up {
+  animation-name: flyInUp;
+}
+
+.blur-in {
+  animation-name: blurIn;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+@keyframes flyInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// الحركة الثانية: الظهور من الضبابية (Blur in)
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+// الحركة الثالثة: الظهور الناعم البسيط (Fade in)
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

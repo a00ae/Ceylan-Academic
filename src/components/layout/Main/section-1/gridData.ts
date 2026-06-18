@@ -50,7 +50,7 @@ export interface BtnService {
 
 export interface CardService {
   id: number;
-  type: string;
+  type: "top-title" | "heading-large" | "description" | "btn";
   title: string;
   animation: string
 }
@@ -60,25 +60,25 @@ export const CARD_SERVICE: CardService[] = [
     id: 1,
     type:"top-title",
     title: "Şimdi katılın ve indirimden yararlanın.",
-    animation: ""
+    animation: "fly-in-up"
   },
   {
     id: 2,
     type:"heading-large",
     title: "Şimdi katılın ve indirimden yararlanın.",
-    animation: ""
+    animation: "blur-in"
   },
   {
     id: 3,
     type:"description",
     title: "Şimdi katılın ve indirimden yararlanın.",
-    animation: ""
+    animation: "fade-in"
   },
   {
     id: 4,
     type:"btn",
     title: "Şimdi katılın ve indirimden yararlanın.",
-    animation: ""
+    animation: "fade-in"
   },
 ]
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../../../ui/Button/Button";
-import Box from "../../../ui/Card/Box";
+import Box from "../../../ui/Card/Box-Heading/Box";
 import { pageData } from "../../../ui/Card/dataBox";
 import Heading from "../../../ui/Card/Heading";
 import { DataPlans } from "./dataPlans";
