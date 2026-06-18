@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Button from "../../../ui/Button/Button";
 import Box from "../../../ui/Card/Box-Heading/Box";
-import { pageData } from "../../../ui/Card/dataBox";
-import Heading from "../../../ui/Card/Heading";
+import { pageData } from "../../../ui/Card/Box-Heading/dataBox";
+import Heading from "../../../ui/Card/Box-Heading/Heading";
 import { DataPlans } from "./dataPlans";
 import styles from "./Plans.module.scss";
 import { RiCheckboxCircleLine } from "@remixicon/react";
