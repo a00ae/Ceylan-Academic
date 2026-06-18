@@ -4,7 +4,7 @@ type Props = {
   heading?: string;
   titleDescription?: string;
   animate?: boolean;
-  isAnimation: boolean;
+  isAnimation?: boolean;
 };
 
 const Heading = ({

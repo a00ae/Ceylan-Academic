@@ -18,7 +18,7 @@ const AboutUs = (props: Props) => {
         <Box {...aboutUs} />
         <div
           className={`${styles["about-us_title"]}`}>
-          <Heading isAnimation {...aboutUs} animate />
+          <Heading  {...aboutUs}  />
           <div className={`${styles["about-us_title_desc"]}`}>
             <p>
               Birçok öğrencinin dil becerilerini geliştirmesine yardımcı olduk.

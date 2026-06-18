@@ -8,6 +8,8 @@ export interface BoxItemType {
   title: string;
   desc?: string;
   heading?: string;
+  animate?: boolean;
+  isAnimation?: boolean; 
   titleDescription?: string;
   card?: PlansCard[]; // تركتها مصفوفة هنا لأن الكرت نفسه قد يحتوي على عدة أسعار بالداخل
 }
@@ -15,6 +17,7 @@ export interface BoxItemType {
 // الواجهة الخاصة بالأوبجيكت الكبير (بدون مصفوفات للأقسام)
 interface FullPageDataType {
   aboutUs: BoxItemType;
+  ourCourses: BoxItemType;
   plans: BoxItemType; // كائن واحد مباشر
   curriculum: BoxItemType; // كائن واحد مباشر
 }
@@ -24,17 +27,25 @@ export const pageData: FullPageDataType = {
     id: 1,
     title: "About us",
     desc: "@Hakkımızda",
-    heading: "Ceylan, öğrencileri arasında iyi bir üne sahip"
+    heading: "Ceylan, öğrencileri arasında iyi bir üne sahip",
+    animate: true,
+    isAnimation: true
   },
 
-  curriculum: {
+  ourCourses: {
     id: 2,
+    title: "",
+    desc: "",
+    heading: "",
+  },
+  curriculum: {
+    id: 3,
     title: "Müfredat",
     desc: "@2026",
     heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
   },
   plans: {
-    id: 3,
+    id: 4,
     title: "Planlar",
     desc: "@2026 - Sınırlı özellikler",
     heading: "Mevcut Diller",
