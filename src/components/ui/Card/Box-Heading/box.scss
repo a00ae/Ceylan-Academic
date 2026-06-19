@@ -5,6 +5,7 @@
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
     @include v.flex-row(flex-start, center, xxs);
+    text-transform: capitalize;
 
     // تنظيم العناصر بشكل عمودي واضح
     span[data-number] {

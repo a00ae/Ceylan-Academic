@@ -34,9 +34,9 @@ export const pageData: FullPageDataType = {
 
   ourCourses: {
     id: 2,
-    title: "",
+    title: "our courses",
     desc: "",
-    heading: "",
+    heading: "kurslarımız premium",
   },
   curriculum: {
     id: 3,

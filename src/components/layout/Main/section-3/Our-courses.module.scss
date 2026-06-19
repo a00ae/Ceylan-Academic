@@ -3,7 +3,26 @@
 .our-courses {
     @include v.container-padding-box;
     &_container {
-        @include v.flex-column(md);
+        @include v.flex-column(lg);
+        
+    }
+    &_title-box {
+        @include v.flex-row(space-between, center, md);
+        .right {
+            @include v.flex-column(md);
+            :global(.box__title) {
+                align-items: self-start;
+                h2 {
+                    @include v.typography-style(lg, bold);
+                }
+            }
+            p {
+                @include v.typography-style(sm, main, border-color);
+            }
+        }
+        .left {
+            
+        }
         
     }
 }

@@ -24,12 +24,12 @@
   --btn-color-hover: #c51162;
 
   // Font Sizes (Converted to rem for better Accessibility)
-  --font-size-xxl: 5rem;     // 80px
-  --font-size-xl: 2.5rem;    // 40px
-  --font-size-lg: 1.875rem;  // 30px
-  --font-size-md: 1.5rem;    // 24px
-  --font-size-sm: 1.125rem;  // 18px
-  --font-size-xs: 1rem;      // 16px
+  --font-size-xxl: 5rem; // 80px
+  --font-size-xl: 2.5rem; // 40px
+  --font-size-lg: 1.875rem; // 30px
+  --font-size-md: 1.5rem; // 24px
+  --font-size-sm: 1.125rem; // 18px
+  --font-size-xs: 1rem; // 16px
   --font-size-xxs: 0.875rem; // 14px
 
   --font-weight-bold: 700;
@@ -58,8 +58,9 @@
   // Shadows & Transitions
   --box-shadow-btn: 0 0 0 0 #000;
   --box-shadow-main: 0 1px 1px 0 rgb(255 255 255 / 5%);
-  --box-shadow-header: 0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
-  --transition-main: 0.3s ;
+  --box-shadow-header:
+    0 1px 10px -5px rgb(50 52 52 / 0%), 0 2px 44px -5px rgb(99 68 68 / 17%);
+  --transition-main: 0.3s;
   --transition-lg: 0.5s;
 }
 
@@ -109,10 +110,12 @@ $width-xxl: 1400px;
 }
 
 // Typography Mixins
-@mixin typography-style($size, $weight, $color) {
+@mixin typography-style($size, $weight, $color: text-color) {
   font-size: var(--font-size-#{$size});
   font-weight: var(--font-weight-#{$weight});
-  color: var(--#{$color});
+  @if $color != null {
+    color: var(--#{$color});
+  }
 }
 
 // كود الـ Grid الاحترافي والمستجيب
@@ -120,8 +123,11 @@ $width-xxl: 1400px;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-sm);
-  
+
   @media (max-width: $width-xxl) {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); // 300px أكثر واقعية للكروت من 500px
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(500px, 1fr)
+    ); // 300px أكثر واقعية للكروت من 500px
   }
 }
