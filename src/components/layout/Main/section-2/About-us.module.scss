@@ -3,16 +3,8 @@
 .about-us {
   @include v.container-padding-box(color-white);
   &_container {
-    transform: translateY(60px);
-    opacity: 0;
-    transition:
-      transform 0.8s ease-in,
-      opacity var(--transition-main);
     @include v.flex-column(xl);
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @include v.animation-main;
   }
   &_title {
     :global(.box__title) {
@@ -36,9 +28,10 @@
     transition: filter var(--transition-main);
     cursor: pointer;
     position: relative;
+    max-height: 600px;
     img {
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
     &_play {
       position: absolute;

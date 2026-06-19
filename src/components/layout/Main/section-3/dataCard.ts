@@ -1,3 +1,5 @@
+import { indexImg } from "@/assets/our-courses/img";
+
 interface DataCard {
     id: number,
     img: string;
@@ -8,20 +10,20 @@ interface DataCard {
 export const dataCard: DataCard[] = [
     {
         id: 1, 
-        img: "", 
-        title: "",
+        img: indexImg[0], 
+        title: "Öğrencilerin dil becerilerini geliştirmek",
         desc: ""
     },
     {
         id: 2, 
-        img: "", 
-        title: "",
+        img: indexImg[1], 
+        title: "Kelime bilgisi ve dil bilgisi öğrenin.",
         desc: ""
     },
     {
         id: 3, 
-        img: "", 
-        title: "",
+        img: indexImg[2], 
+        title: "Konuşmalara büyük önem verilir.",
         desc: ""
     },
 ]

@@ -119,15 +119,31 @@ $width-xxl: 1400px;
 }
 
 // كود الـ Grid الاحترافي والمستجيب
-@mixin grid-main {
+@mixin grid-main($min-width: 400px) {
   display: grid;
-  grid-template-columns: 1fr;
   gap: var(--space-sm);
 
+  // الحالة الافتراضية لجميع الشاشات (تجاوب تلقائي ذكي)
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+
+  // إذا أردت تخصيص سلوك معين عند شاشات الـ XXL وما دونها
   @media (max-width: $width-xxl) {
+    // يمكنك تعديل الحجم هنا إذا كنت تريد حصر الحجم في الشاشات الصغيرة
     grid-template-columns: repeat(
       auto-fill,
-      minmax(500px, 1fr)
-    ); // 300px أكثر واقعية للكروت من 500px
+      minmax(min($min-width, 100%), 1fr)
+    );
   }
+}
+
+@mixin animation-main($transform: 60px) {
+    transform: translateY($transform);
+    opacity: 0;
+    transition:
+      transform 0.8s ease-in,
+      opacity var(--transition-main);
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }

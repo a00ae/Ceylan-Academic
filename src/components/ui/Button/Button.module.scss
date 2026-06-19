@@ -1,14 +1,18 @@
 @use "../../../styles/variables" as btn;
 
-// 1. مصفوفة الألوان المحدثة (التحكم الكامل بالخلفية والنص والحدود)
+// 1. مصفوفة الألوان المحدثة
 $btn-themes: (
   "default": (
     bg: var(--btn-color),
     color: var(--color-white),
     border: var(--btn-color),
-    hover-bg: #ffffff,               // الخلفية تصبح بيضاء عند الهوفر
+    hover-bg: #ffffff,
     hover-border: var(--btn-color),
-    hover-color: var(--btn-color)    // النص يتغير ليتناسب مع الخلفية البيضاء
+    hover-color: var(--btn-color),
+    bg-icon: var(--color-white),
+    color-icon: var(--heading-color),
+    hover-bg-icon: var(--heading-color),
+    hover-color-icon: var(--color-white),
   ),
   "primary": (
     bg: var(--color-primary),
@@ -16,7 +20,9 @@ $btn-themes: (
     border: transparent,
     hover-bg: var(--color-white),
     hover-border: var(--color-primary),
-    hover-color: var(--color-primary)             // يظل النص أبيض لأن الخلفية داكنة
+    hover-color: var(--color-primary),
+    bg-icon: var(--color-white),
+    color-icon: var(--heading-color),
   ),
   "secondary": (
     bg: transparent,
@@ -24,15 +30,19 @@ $btn-themes: (
     border: var(--color-secondary),
     hover-bg: var(--color-secondary-hover),
     hover-border: var(--color-secondary-hover),
-    hover-color: #ffffff             // يظل النص أبيض
+    hover-color: #ffffff,
+    bg-icon: var(--color-white),
+    color-icon: var(--heading-color),
   ),
   "black": (
-  bg: var( --heading-color),
-  color: var(--color-white),
-  border: var(--heading-color),
-  hover-bg: var(--color-white),
-  hover-border: var(--heading-color),
-  hover-color: var(--heading-color),
+    bg: var(--heading-color),
+    color: var(--color-white),
+    border: var(--heading-color),
+    hover-bg: var(--color-white),
+    hover-border: var(--heading-color),
+    hover-color: var(--heading-color),
+    bg-icon: var(--color-white),
+    color-icon: var(--heading-color),
   ),
   "outline": (
     bg: transparent,
@@ -41,16 +51,19 @@ $btn-themes: (
     hover-bg: var(--heading-color),
     hover-border: var(--heading-color),
     hover-color: var(--color-white),
+    bg-icon: var(--heading-color),
+    color-icon: var(--color-white),
   ),
-  "dark": ( // مثال إضافي لزر بخلفية سوداء يتحول لشفاف أو أبيض عند الهوفر
+  "dark": (
     bg: #000000,
-    color: #ffffff,                  // النص أبيض على خلفية سوداء
+    color: #ffffff,
     border: #000000,
-    hover-bg: #ffffff,               // عند الهوفر الخلفية بيضاء
-    // color: #ffffff,
+    hover-bg: #ffffff,
     hover-border: #000000,
-    hover-color: #000000,             // النص ينعكس ليصبح أسود
-  )
+    hover-color: #000000,
+    bg-icon: var(--heading-color),
+    color-icon: var(--color-white),
+  ),
 );
 
 // 2. الكلاس الأساسي للزر
@@ -75,19 +88,17 @@ $btn-themes: (
       transform: translateY(0);
 
       &::before {
-        content: attr(data-title) ;
+        content: attr(data-title);
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        // سيتم التحكم بلونه ديناميكيًا بالأسفل لتجنب التعارض
       }
     }
   }
 
   .svg {
     padding: calc(var(--space-xs) - 2px);
-    background-color: #fff;
     border-radius: var(--border-radius-sm);
     @include btn.flex-row(center, center, 0);
 
@@ -97,7 +108,6 @@ $btn-themes: (
     }
   }
 
-  // تأثيرات الأنميشن العامة عند الهوفر
   &:hover {
     .first .data-title {
       transform: translateY(-100%);
@@ -105,39 +115,64 @@ $btn-themes: (
 
     svg {
       transform: rotate(40deg);
-      color: var(--btn-color);
+      color: var(--btn-color); // سيتم قهر هذا اللون بالقيم الديناميكية بالأسفل عند الحاجة
     }
   }
 
-  // 3. توليد الألوان والتأثيرات المتطابقة تلقائيًا
+  // 3. التعديل هنا: حلقة @each الصحيحة لقراءة الخرائط في Sass
   @each $theme, $colors in $btn-themes {
     &.#{$theme} {
       background-color: map-get($colors, bg);
       color: map-get($colors, color);
-      
+
       @if map-get($colors, border) != transparent {
         border: 2px solid map-get($colors, border);
       }
 
-      // ضبط لون النص التأثيري (الـ التموضع السفلي) قبل الهوفر ليطابق لون الزر الأصلي
-       .svg svg, .first .data-title::before {
-        color: map-get($colors, hover-color);
+      // جلب ألوان الأيقونات والنص التأثيري بشكل صحيح من خريطة الثيم الحالية
+      .first .data-title::before {
+        color: map-get($colors, color); 
       }
-
+      
+      .svg {
+        background-color: map-get($colors, bg-icon);
+        svg {
+          color: map-get($colors, color-icon);
+        }
+      }
 
       &:hover {
         background-color: map-get($colors, hover-bg);
         color: map-get($colors, hover-color);
-        
+
         @if map-get($colors, hover-border) != transparent {
           border-color: map-get($colors, hover-border);
+        }
+
+        // الألوان عند الهوفر
+        .first .data-title::before {
+          color: map-get($colors, hover-color);
+        }
+
+        
+        svg {
+          color: map-get($colors, color-icon);
         }
       }
     }
   }
 
   // 4. الأحجام
-  &.small { padding: 3px 3px; font-size: 14px; }
-  &.medium { padding: 4px 4px; font-size: 16px; }
-  &.large {padding: 12px 12px; font-size: 18px;}
+  &.small {
+    padding: 3px 3px;
+    font-size: 14px;
+  }
+  &.medium {
+    padding: 4px 4px;
+    font-size: 16px;
+  }
+  &.large {
+    padding: 12px 12px;
+    font-size: 18px;
+  }
 }
