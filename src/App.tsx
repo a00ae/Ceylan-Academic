@@ -5,28 +5,34 @@ import Loader from "./components/ui/Loader/Loader";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     const loadingFunction = async () => {
       try {
         setLoading(true);
-        await new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100));
+        await new Promise((reslove) =>
+          setTimeout(reslove, Math.random() * 2900),
+        );
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        setMessage("erorr 404");
-        throw new Error(message, { cause: error });
+        console.log(error);
+
       }
     };
-    window.addEventListener("load", loadingFunction);
-    return () => window.removeEventListener("load", loadingFunction);
-  }, [message]);
+    loadingFunction();
 
+    return () => {
+      if (loading) {
+        setLoading(false);
+      }
+    };
+  }, []);
 
   return (
     <>
-      <Loader loading={loading}/>
+      <Loader loading={loading} />
       <Header />
       <Main />
     </>

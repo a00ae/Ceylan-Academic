@@ -18,7 +18,7 @@
     // العنصر الأول (index 0) -> 0 * 0.25s = 0s (يبدأ فوراً)
     // العنصر الثاني (index 1) -> 1 * 0.25s = 0.25s
     // العنصر الثالث (index 2) -> 2 * 0.25s = 0.5s
-    animation-delay: calc(5.8s + var(--item-index) * 0.25s);
+    animation-delay: calc(2.8s + var(--item-index) * 0.25s);
   }
   &_item_top-title {
     @include service.typography-style(sm, main, text-color);

@@ -1,0 +1,9 @@
+@use "../../../../styles/variables" as v;
+
+.why-choose-us {
+    @include v.container-padding-box(color-white);
+    &_container {
+        @include v.grid-main;
+        @include v.animation-main;
+    }
+}

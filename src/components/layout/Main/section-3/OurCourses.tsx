@@ -26,6 +26,9 @@ const OurCourses = () => {
               variant="outline"
               children="daha fazlasını keşfedin"
               arrow
+              style={{
+                borderColor: "var(--text-color-grey)"
+              }}
             />
           </div>
         </div>

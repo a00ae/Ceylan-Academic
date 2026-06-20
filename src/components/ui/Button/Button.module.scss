@@ -10,9 +10,7 @@ $btn-themes: (
     hover-border: var(--btn-color),
     hover-color: var(--btn-color),
     bg-icon: var(--color-white),
-    color-icon: var(--heading-color),
-    hover-bg-icon: var(--heading-color),
-    hover-color-icon: var(--color-white),
+    color-icon: var(--btn-color),
   ),
   "primary": (
     bg: var(--color-primary),
@@ -22,7 +20,7 @@ $btn-themes: (
     hover-border: var(--color-primary),
     hover-color: var(--color-primary),
     bg-icon: var(--color-white),
-    color-icon: var(--heading-color),
+    color-icon: var(--color-white),
   ),
   "secondary": (
     bg: transparent,

@@ -5,12 +5,9 @@ interface Props {
 const Loader = (props: Props) => {
   const text = "Ceylan Dil Akademisi";
 
-  // مدة حركة كل حرف فردي
-  const letterDuration = 0.5;
-  // التأخير بين كل حرف والآخر
-  const letterStagger = 0.05;
-  // الوقت الإجمالي الذي تستغرقه الحروف كلها لتختفي تماماً
-  const textAnimationTime = text.length * letterStagger + letterDuration;
+  const letterDuration = 0.2;
+  const letterStagger = 0.02;
+  const textAnimationTime = text.length * letterStagger + letterDuration; // حوالي 0.62 ثانية
 
   return (
     <>
@@ -18,38 +15,49 @@ const Loader = (props: Props) => {
         style={{
           position: "fixed",
           top: "0",
+          left: "0", // إشهار المتصفح بمكان البداية الأفقي
           width: "100%",
-          height: props.loading ? "100vh" : "0vh",
+          height: "100vh", // نثبت الارتفاع 100vh دائماً
           backgroundColor: "var(--bg-color-default)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          zIndex: props.loading ? 1 : -1,
+          zIndex: 9999, // نثبته ليكون دائماً بالأعلى فوق كل شيء
+          
+          // بدلاً من تغيير الارتفاع، سنقوم بتحريك الشاشة بالكامل للأعلى (أفضل للأداء بكثير)
+          transform: props.loading ? "translateY(0)" : "translateY(-100%)",
           visibility: props.loading ? "visible" : "hidden",
-          // تعديل الأنيميشن هنا: الشاشة تنتظر اختفاء النص بالكامل (textAnimationTime) قبل أن تبدأ بالارتفاع
+          
+          // التعديل السحري هنا:
+          // عند الإغلاق (false): ننتظر مدة النص (textAnimationTime) ثم نقوم بتحريك الشاشة خلال 0.5 ثانية
+          // والـ visibility تختفي تماماً بعد انتهاء حركتي النص والشاشة معاً
           transition: props.loading
-            ? ""
-            : ` 0.5s ${textAnimationTime}s ease-in-out, visibility 0s ${textAnimationTime + 0.5}s`,
+            ? "transform 0s, visibility 0s"
+            : `transform 0.5s ease-in-out ${textAnimationTime}s, visibility 0s ${textAnimationTime + 0.5}s`,
         }}
-        className="loader">
+        className="loader"
+      >
         <div>
-          <span style={{ display: "inline-block" }}>
+          <span
+            style={{
+              display: "inline-block",
+              opacity: props.loading ? "1" : "0",
+              transition: props.loading ? "" : `opacity 0.1s ${textAnimationTime}s`,
+            }}
+          >
             {text.split("").map((char, index) => (
               <span
                 style={{
-                  // backgroundColor: "var(--color-white)",
                   fontSize: "100px",
                   display: "inline-block",
                   opacity: props.loading ? "1" : "0",
-                  transform: props.loading
-                    ? "translateY(0)"
-                    : "translateY(-30px)", // يرتفع للأعلى قليلاً أثناء الاختفاء لمظهر أجمل
+                  transform: props.loading ? "translateY(0)" : "translateY(-30px)",
                   transition: props.loading
                     ? `all ${letterDuration}s calc(${index} * ${letterStagger}s) ease-out`
                     : `all ${letterDuration}s calc(${(text.length - 1 - index) * letterStagger}s) ease-in`,
-                  // تعديل المعادلة بالأعلى (text.length - 1 - index) لضمان أن آخر حرف يبدأ الاختفاء فوراً في الـ Exit
                 }}
-                key={index}>
+                key={index}
+              >
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}
