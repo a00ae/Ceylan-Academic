@@ -18,6 +18,7 @@ export interface BoxItemType {
 interface FullPageDataType {
   aboutUs: BoxItemType;
   ourCourses: BoxItemType;
+  whyChoose: BoxItemType;
   plans: BoxItemType; // كائن واحد مباشر
   curriculum: BoxItemType; // كائن واحد مباشر
 }
@@ -35,17 +36,26 @@ export const pageData: FullPageDataType = {
   ourCourses: {
     id: 2,
     title: "kurslarımız",
-    desc: "",
     heading: "kurslarımız premium",
   },
-  curriculum: {
+  whyChoose: {
     id: 3,
+    title: "Neden bizi seçmelisiniz",
+    heading: "Kursumuzun öğrenciler için avantajları",
+    animate: true,
+    isAnimation: true
+
+
+  },
+
+  curriculum: {
+    id: 4,
     title: "Müfredat",
     desc: "@2026",
     heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
   },
   plans: {
-    id: 4,
+    id: 5,
     title: "Planlar",
     desc: "@2026 - Sınırlı özellikler",
     heading: "Mevcut Diller",

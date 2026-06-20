@@ -4,6 +4,7 @@ import AboutUs from "./section-2/About-us.tsx";
 import Curriculum from "./section-5/Curriculum.tsx";
 import Plans from "./section-6/Plans.tsx";
 import OurCourses from "./section-3/OurCourses.tsx";
+import WhyChooseUs from "./section-4/WhyChooseUs.tsx";
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
       <Service />
       <AboutUs />
       <OurCourses />
+      <WhyChooseUs />
       <Curriculum />
       <Plans />
     </div>
