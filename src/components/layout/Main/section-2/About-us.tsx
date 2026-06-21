@@ -5,7 +5,7 @@ import { pageData } from "@/components/ui/Card/Box-Heading/dataBox";
 import Heading from "@/components/ui/Card/Box-Heading/Heading";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ceylanDil from "@/assets/about-us/about-us-ceylan-dil.webp";
-import { RiPlayCircleFill, RiPlayCircleLine } from "@remixicon/react";
+import { RiPlayCircleFill } from "@remixicon/react";
 
 type Props = {};
 

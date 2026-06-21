@@ -3,6 +3,9 @@
 .why-choose-us {
   @include v.container-padding-box(color-white);
   @include v.flex-column(lg);
+  :global(.box) {
+    justify-content: center;
+  }
   :global(.box__title) h2 {
     @include v.typography-style(lg, main);
   }
@@ -23,10 +26,10 @@
       color: var(--border-color);
     }
     .title {
-        @include v.typography-style(md, main)
+      @include v.typography-style(md, main);
     }
     .description {
-        @include v.typography-style(sm, main, text-color-grey)
+      @include v.typography-style(sm, main, text-color-grey);
     }
   }
 }

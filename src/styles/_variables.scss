@@ -121,7 +121,7 @@ $width-xxl: 1400px;
 // كود الـ Grid الاحترافي والمستجيب
 @mixin grid-main($min-width: 400px) {
   display: grid;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 
   // الحالة الافتراضية لجميع الشاشات (تجاوب تلقائي ذكي)
   grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));

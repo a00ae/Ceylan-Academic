@@ -20,6 +20,12 @@
         @include v.typography-style(sm, main, border-color);
       }
     }
+    .left {
+      width: max-content;
+    }
+    @media (max-width: v.$width-xl) {
+      @include v.flex-column(md);
+    }
   }
   &_card {
       @include v.animation-main;

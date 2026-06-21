@@ -20,6 +20,15 @@
       width: 40%;
       @include v.typography-style(sm, main, text-color-grey);
     }
+    @media (max-width: v.$width-xl) {
+      @include v.flex-column(md);
+      :global(.box__title) {
+        width: 100%;
+      }
+      &_desc {
+        width: 80%;
+      }
+    }
   }
   &_video {
     width: 100%;
@@ -46,7 +55,6 @@
         transition: opacity var(--transition-lg) ease-in-out;
         fill: var(--text-color-grey); /* أيقونات ريمكس تستخدم fill أو color */
       }
-
     }
 
     &:hover {
@@ -56,7 +64,6 @@
       .play-icon {
         opacity: 1;
       }
-
     }
   }
 }

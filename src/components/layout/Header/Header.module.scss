@@ -11,6 +11,7 @@
   box-shadow: var(--box-shadow-header);
   font-family: "Cinzel", serif;
   background-color: var(--color-white);
+  
   // تنسيقات الهيدر الخاصة بك (مثل display: flex; خلفية داكنة... إلخ)
 
   &_icon {
@@ -64,5 +65,10 @@
         }
       }
     }
+  }
+
+  @media (max-width: v.$width-sm) {
+    width: 100%;
+    border-radius: 0;
   }
 }

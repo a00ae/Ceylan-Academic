@@ -1,7 +1,6 @@
 @use "../../../../styles/variables" as service;
 .service {
   @include service.container-padding-box;
-  width: 100%;
   background-color: var(--bg-color-default);
 
   &_container {
@@ -13,7 +12,7 @@
     animation-duration: 0.8s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards; // الحفاظ على الحالة النهائية بعد انتهاء الحركة
-
+    @include service.flex-row(center, center);
     // احتساب التأخير تلقائياً:
     // العنصر الأول (index 0) -> 0 * 0.25s = 0s (يبدأ فوراً)
     // العنصر الثاني (index 1) -> 1 * 0.25s = 0.25s
@@ -34,11 +33,17 @@
     width: 50%;
     text-align: center;
     text-transform: capitalize;
+    @media (max-width: service.$width-md) {
+      width: 100%;
+    }
   }
   &_item_description {
     @include service.typography-style(md, main, text-color-grey-400);
     width: 50%;
     text-align: center;
+    @media (max-width: service.$width-md) {
+      width: 80%;
+    }
   }
   &_item_btn {
     @include service.flex-row(center, center, xxs);

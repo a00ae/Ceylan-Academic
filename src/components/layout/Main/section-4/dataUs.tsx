@@ -1,10 +1,10 @@
 import {
-  RiBookOpenFill,
+  RiBookOpenLine,
   RiCustomerServiceLine,
-  RiGroupFill,
+  RiGroupLine,
   RiTiktokFill,
   RiTrophyLine,
-  RiVidiconFill,
+  RiVidiconLine,
 } from "@remixicon/react";
 import { type ReactNode } from "react";
 
@@ -25,7 +25,7 @@ export const CARD_US: DataUs[] = [
   },
   {
     id: 2,
-    svg: <RiGroupFill />,
+    svg: <RiGroupLine   />,
     titleCard: "kültürel farkındalık",
     description:
       "Kurslarımız aynı zamanda öğrencilerin ufuklarını genişletmek için onları kültürle tanıştırır.",
@@ -39,14 +39,14 @@ export const CARD_US: DataUs[] = [
   },
   {
     id: 4,
-    svg: <RiBookOpenFill />,
+    svg: <RiBookOpenLine />,
     titleCard: "Pratik becerilere odaklanın",
     description:
       "Kurslarımız, öğrencilerin öğrendiklerini günlük hayata uygulamalarına yardımcı olmak amacıyla, günlük yaşamla ilgili pratik dil becerilerine odaklanmaktadır.",
   },
   {
     id: 5,
-    svg: <RiVidiconFill />,
+    svg: <RiVidiconLine />,
     titleCard: "Esnek öğrenme seçenekleri",
     description:
       "online kurslar, kendi hızlarında ve kendi programlarına göre öğrenmelerine olanak tanıdığı için meşgul öğrenciler için uygundur.",
