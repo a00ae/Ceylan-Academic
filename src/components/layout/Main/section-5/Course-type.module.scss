@@ -1,0 +1,46 @@
+@use "../../../../styles/variables" as v;
+
+.course-type {
+  @include v.container-padding-box;
+  &_container {
+    @include v.flex-row(space-between, stretch, md);
+    @media (max-width: v.$width-xl) {
+      @include v.flex-column(md);
+    }
+  }
+  &_left {
+    width: 40%;
+    border-radius: var(--border-radius-xxl);
+    overflow: hidden;
+    height: auto;
+    max-height: 300px;
+    @media (max-width: v.$width-xl) {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &_right {
+    @include v.flex-column(md);
+    width: 50%;
+    &_top {
+      @include v.flex-column(sm);
+      :global(.box__title) {
+        align-items: stretch;
+        h2 {
+          @include v.typography-style(lg, main);
+        }
+      }
+      p {
+        @include v.typography-style(sm, main, text-color-grey);
+        width: 80%;
+      }
+    }
+
+    @media (max-width: v.$width-xl) {
+      width: 100%;
+    }
+  }
+}

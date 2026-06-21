@@ -19,6 +19,7 @@ interface FullPageDataType {
   aboutUs: BoxItemType;
   ourCourses: BoxItemType;
   whyChoose: BoxItemType;
+  courseType: BoxItemType;
   plans: BoxItemType; // كائن واحد مباشر
   curriculum: BoxItemType; // كائن واحد مباشر
 }
@@ -44,12 +45,18 @@ export const pageData: FullPageDataType = {
     heading: "Kursumuzun öğrenciler için avantajları",
     animate: true,
     isAnimation: true
-
-
+  },
+  courseType: {
+    id: 4,
+    title: "Ders türü",
+    heading: "Çeşitli kurslar sunuyoruz.",
+    animate: true, 
+    isAnimation: true,
   },
 
+
   curriculum: {
-    id: 4,
+    id: 6,
     title: "Müfredat",
     desc: "@2026",
     heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
