@@ -11,14 +11,16 @@
   }
   &_container {
     @include v.grid-main(375px);
-    @include v.animation-main;
-    opacity: 0;
-    &.visible {
-      animation: why-choose 0.2s 0.1s forwards;
-    }
   }
   &_card-us {
     @include v.flex-column(xs);
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease-out;
+    &:global(.is-visible) {
+      transform: translateY(0);
+      opacity: 1;
+    }
     padding: 5px;
     .svg svg {
       width: 40px;
@@ -34,13 +36,4 @@
   }
 }
 
-@keyframes why-choose {
-  0%,
-  80% {
-    opacity: 0;
-  }
-  80%,
-  100% {
-    opacity: 1;
-  }
-}
+
