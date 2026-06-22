@@ -1,3 +1,5 @@
+import { indexImg } from "@/assets/our-courses/img";
+
 interface DataAsk {
   id: number;
   img: string;
@@ -8,7 +10,7 @@ interface DataAsk {
 export const ASK_DATA: DataAsk[] = [
   {
     id: 1,
-    img: "",
+    img: indexImg[0],
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde!",
     description:
@@ -16,7 +18,7 @@ export const ASK_DATA: DataAsk[] = [
   },
   {
     id: 2,
-    img: "",
+    img: indexImg[1],
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde!",
     description:
@@ -24,7 +26,7 @@ export const ASK_DATA: DataAsk[] = [
   },
   {
     id: 3,
-    img: "",
+    img: indexImg[2],
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde!",
     description:
@@ -32,7 +34,7 @@ export const ASK_DATA: DataAsk[] = [
   },
   {
     id: 4,
-    img: "",
+    img: indexImg[3],
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde!",
     description:

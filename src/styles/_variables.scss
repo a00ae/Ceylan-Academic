@@ -81,9 +81,10 @@ $width-xxl: 1400px;
 }
 
 // ميكسين مرن للـ Flex Column
-@mixin flex-column($gap: 0, $align: stretch) {
+@mixin flex-column($gap: 0, $align: stretch, $justify: flex-start) {
   display: flex;
   flex-direction: column;
+  justify-content: $justify;
   align-items: $align;
   @if $gap != 0 {
     gap: var(--space-#{$gap});

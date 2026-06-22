@@ -6,25 +6,28 @@ import Heading from "@/components/ui/Card/Box-Heading/Heading";
 import { RiArrowUpSLine } from "@remixicon/react";
 import { useState } from "react";
 import { ASK_DATA } from "./dataAsk";
+import { indexImg } from "@/assets/our-courses/img";
 
 type Props = {
   id: number;
+  img: string;
   active: boolean;
 };
 
 const CourseType = () => {
   const { courseType } = pageData;
   const [isActive, setIsActive] = useState<Props | null>(null);
-  const handleAccordion = ({ id, active }: Props) => {
-    setIsActive({ id: id, active: !active });
+  const handleAccordion = ({ id, active, img }: Props) => {
+    setIsActive({ id: id, active: !active, img: img });
   };
+  const activeAccordion: boolean = isActive == null || isActive?.active  === false;
   return (
     <section className={styles["course-type"]}>
       <div className={styles["course-type_container"]}>
         <div className={styles["course-type_left"]}>
-          <p>(0{isActive === null ?  "1" : isActive?.id })</p>
+          <p>(0{activeAccordion  ?  "1" : isActive?.id })</p>
           <div className={styles.ig}>
-            <img src={img} alt="" />
+            <img src={activeAccordion ? indexImg[0] : isActive?.img} alt="" />
           </div>
         </div>
         <div className={styles["course-type_right"]}>
@@ -38,13 +41,14 @@ const CourseType = () => {
           </div>
           {/* bottom */}
           <div className={styles["course-type_right_bottom"]}>
-            {ASK_DATA.map(({ id, description, title }) => {
+            {ASK_DATA.map(({ id, description, title, img }) => {
               return (
                 <div
                   key={id}
                   onClick={() =>
                     handleAccordion({
                       id,
+                      img,
                       active: isActive?.id === id ? isActive.active : false,
                     })
                   }

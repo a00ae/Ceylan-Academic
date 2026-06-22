@@ -11,7 +11,7 @@ $transition: var(--transition-main);
     }
   }
   &_left {
-    @include v.flex-column(md);
+    @include v.flex-column(md, $justify: space-between);
     width: 40%;
 
     @media (max-width: v.$width-xl) {
@@ -53,7 +53,7 @@ $transition: var(--transition-main);
       }
     }
     &_bottom {
-      @include v.flex-column(sm);
+      @include v.flex-column(xs);
       .ask_accordion {
         padding: var(--space-sm);
         border: 1px dashed var(--border-color);
@@ -61,7 +61,7 @@ $transition: var(--transition-main);
         overflow: hidden;
         position: relative;
         cursor: pointer;
-        transition: border-color $transition;
+        transition: border-color 0.4s ease-in-out;
         &::before {
             content: "";
             position: absolute;
