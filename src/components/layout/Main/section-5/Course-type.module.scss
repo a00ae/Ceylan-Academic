@@ -1,7 +1,9 @@
 @use "../../../../styles/variables" as v;
+$transition: var(--transition-main);
 
 .course-type {
-  @include v.container-padding-box;
+  --bg-color: var(--heading-color);
+  @include v.container-padding-box(bg-color);
   &_container {
     @include v.flex-row(space-between, stretch, md);
     @media (max-width: v.$width-xl) {
@@ -9,33 +11,140 @@
     }
   }
   &_left {
+    @include v.flex-column(md);
     width: 40%;
-    border-radius: var(--border-radius-xxl);
-    overflow: hidden;
-    height: auto;
-    max-height: 300px;
+
     @media (max-width: v.$width-xl) {
-      width: 100%;
+      display: none;
     }
-    img {
-      width: 100%;
-      object-fit: cover;
+    p {
+      @include v.typography-style(lg, main, color-white);
+    }
+    .ig {
+      border-radius: var(--border-radius-xxl);
+      overflow: hidden;
+      height: auto;
+      max-height: 360px;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
   &_right {
-    @include v.flex-column(md);
+    @include v.flex-column(xl);
     width: 50%;
     &_top {
       @include v.flex-column(sm);
+      :global(.box) {
+        span[data-title] {
+          color: var(--color-white);
+        }
+      }
       :global(.box__title) {
         align-items: stretch;
         h2 {
-          @include v.typography-style(lg, main);
+          @include v.typography-style(lg, main, color-white);
         }
       }
       p {
         @include v.typography-style(sm, main, text-color-grey);
         width: 80%;
+      }
+    }
+    &_bottom {
+      @include v.flex-column(sm);
+      .ask_accordion {
+        padding: var(--space-sm);
+        border: 1px dashed var(--border-color);
+        border-radius: var(--border-radius-xl);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: border-color $transition;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            background-color: transparent;
+            top: 0;
+            left: 0;
+            transition: all calc($transition + 0.1s) ease; 
+            // z-index: ;
+        }
+        &_top {
+          @include v.flex-row(space-between, center, sm);
+          transition: all $transition;
+          span {
+            @include v.typography-style(sm, main, text-color-grey);
+          }
+
+          svg {
+            transition: transform $transition;
+            color: var(--text-color-grey);
+          }
+        }
+        &:hover {
+          border-color: var(--color-white);
+
+          span {
+            color: var(--color-white);
+          }
+          svg {
+            color: var(--color-white);
+          }
+        }
+        .details-wrapper {
+          grid-template-rows: 0fr;
+          display: grid;
+          transition: grid-template-rows 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+          &_inner {
+            opacity: 0;
+            transform: translateY(40px);
+            transition:
+              opacity $transition,
+              transform 0.5s;
+            overflow: hidden;
+            p {
+                @include v.typography-style(sm, main, text-color-grey);
+                max-width: 90%;
+                padding-top: 25px ;
+
+            }
+          }
+          
+        }
+
+        // active
+        &.active {
+            &::before {
+                content: "";
+                background: var(--color-white);
+                height: 100%;
+            }
+          .ask_accordion_top {
+            border-color: transparent;
+            span {
+                color: var(--heading-color);
+                z-index: 1;
+            }
+            .arrow-up svg {
+              transform: rotate(180deg); /* تدوير السهم */
+              color: var(--btn-color);
+            }
+          }
+          .details-wrapper {
+            grid-template-rows: 1fr;
+            &_inner {
+                opacity: 1;
+                transform: translateY(0);
+            }
+          }
+          &:hover {
+          border-color: transparent;
+        }
+        }
       }
     }
 
