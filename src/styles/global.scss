@@ -1,5 +1,5 @@
+@use "./variables" as v;
 @import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -32,4 +32,15 @@ body {
   position: relative;
   width: 100%;
   overflow-x: hidden;
+}
+
+.loader {
+  @media (max-width: v.$width-md) {
+    span {
+      font-size: 2.2rem !important;
+    }
+  }
+  @media (max-width: v.$width-sm) {
+    font-size: 1.2rem !important;
+  }
 }
