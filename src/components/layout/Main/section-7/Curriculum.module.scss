@@ -36,23 +36,26 @@
   &_books {
     @include v.grid-main(350px);
     .book {
-      padding: 40px ;
+      padding: 40px;
       width: 80%;
-      background: var(--color-white);
-      box-shadow: 0 2px 10px -4px rgba(0 0 0 / 0.09);
+      background: #f5f5f5
+;
+      box-shadow: 0 2px 10px -4px rgba(0 0 0 / 0.20);
       position: relative;
+      transform: rotateY(20deg) rotateX(40deg) translateZ(30deg);
       margin: auto;
       @include v.flex-column(lg, center, center);
       &::before {
         content: "";
         position: absolute;
-        right: 0;
+        left: 0;
         top: 0;
-        width: 30px;
+        width: 20px;
         height: 100%;
-        background-color: var(--color-white);
-        transform: translatex(27px) rotateY(42deg);
-        box-shadow: 15px 17px 40px -10px rgba(0, 0, 0, 0.2);
+        background-color: inherit;
+        transform: translatex(-14px) rotateY(-72deg) ;
+        box-shadow: -15px 22px 40px -10px rgba(0 0 0 / 0.9);
+        // box-shadow: inherit;
       }
       &_title {
         width: 100%;
@@ -61,12 +64,14 @@
         border-radius: 2px;
         @include v.typography-style(sm, main, color-white);
         @media (max-width: v.$width-sm) {
-           @include v.typography-style(xs, main, color-white);
+          @include v.typography-style(xs, main, color-white);
         }
       }
       &_description {
-        @include v.typography-style(xxs, main, );
+        text-align: center;
+        @include v.typography-style(xxs, main);
       }
     }
+    
   }
 }
