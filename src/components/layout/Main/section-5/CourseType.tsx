@@ -1,12 +1,12 @@
 import { pageData } from "@/components/ui/Card/Box-Heading/dataBox";
 import styles from "./Course-type.module.scss";
-import img from "@/assets/about-us/about-us-ceylan-dil.webp";
 import Box from "@/components/ui/Card/Box-Heading/Box";
 import Heading from "@/components/ui/Card/Box-Heading/Heading";
 import { RiArrowUpSLine } from "@remixicon/react";
 import { useState } from "react";
 import { ASK_DATA } from "./dataAsk";
 import { indexImg } from "@/assets/our-courses/img";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type Props = {
   id: number;
@@ -17,13 +17,14 @@ type Props = {
 const CourseType = () => {
   const { courseType } = pageData;
   const [isActive, setIsActive] = useState<Props | null>(null);
+  const [ref, isVisible] = useScrollAnimation();
   const handleAccordion = ({ id, active, img }: Props) => {
     setIsActive({ id: id, active: !active, img: img });
   };
   const activeAccordion: boolean = isActive == null || isActive?.active  === false;
   return (
     <section className={styles["course-type"]}>
-      <div className={styles["course-type_container"]}>
+      <div ref={ref} className={`${styles["course-type_container"]} ${isVisible ? styles.visible : ""}`}>
         <div className={styles["course-type_left"]}>
           <p>(0{activeAccordion  ?  "1" : isActive?.id })</p>
           <div className={styles.ig}>

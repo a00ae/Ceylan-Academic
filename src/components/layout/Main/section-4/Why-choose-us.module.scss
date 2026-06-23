@@ -14,18 +14,10 @@
   }
   &_card-us {
     @include v.flex-column(xs);
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.8s ease-out;
+    @include v.animation-card;
     padding: var(--space-sm);
     box-shadow: 0 5px 23px -11px rgba(0 0 0 / 0.5);
     border-radius: var(--border-radius-lg);
-
-    &:global(.is-visible) {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
     .svg svg {
       width: 40px;
       height: 40px;

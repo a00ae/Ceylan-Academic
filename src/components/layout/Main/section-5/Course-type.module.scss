@@ -6,6 +6,7 @@ $transition: var(--transition-main);
   @include v.container-padding-box(bg-color);
   &_container {
     @include v.flex-row(space-between, stretch, md);
+    @include v.animation-main;
     @media (max-width: v.$width-xl) {
       @include v.flex-column(md);
     }

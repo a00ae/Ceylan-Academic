@@ -138,13 +138,23 @@ $width-xxl: 1400px;
 }
 
 @mixin animation-main($transform: 60px) {
-    transform: translateY($transform);
-    opacity: 0;
-    transition:
-      transform 0.8s ease-in,
-      opacity var(--transition-main);
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  transform: translateY($transform);
+  opacity: 0;
+  transition:
+    transform 0.8s ease-in,
+    opacity var(--transition-main);
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin animation-card($transform: 100px) {
+  opacity: 0;
+  transform: translateY($transform);
+  transition: all 0.8s ease-out;
+  &:global(.is-visible) {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
