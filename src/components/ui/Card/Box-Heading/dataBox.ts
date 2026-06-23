@@ -69,6 +69,8 @@ export const pageData: FullPageDataType = {
     title: "Müfredat",
     desc: "@2026",
     heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
+    isAnimation: true,
+    animate: true,
   },
   plans: {
     id: 7,

@@ -3,11 +3,69 @@
 .curriculum {
   @include v.container-padding-box;
   &_container {
-    @include v.flex-column(md);
+    @include v.flex-column(lg);
     :global(.box) {
       @include v.flex-column(xxs);
       :global(.box_desc) {
         transform: translateX(37px);
+      }
+    }
+  }
+  &_title_heading {
+    @include v.flex-row(flex-end, center, xl);
+    @media (max-width: v.$width-xl) {
+      flex-direction: column;
+    }
+    :global(.box__title) {
+      h2 {
+        @include v.typography-style(xl, main);
+        width: 75%;
+        @media (max-width: v.$width-xl) {
+          width: 100%;
+        }
+      }
+    }
+
+    .description {
+      @include v.typography-style(sm, main, text-color-grey);
+      flex: 0 0 20%;
+      text-align: start;
+      width: 100%;
+    }
+  }
+  &_books {
+    @include v.grid-main(350px);
+    .book {
+      padding: 40px ;
+      width: 80%;
+      background: var(--color-white);
+      box-shadow: 0 2px 10px -4px rgba(0 0 0 / 0.09);
+      position: relative;
+      margin: auto;
+      @include v.flex-column(lg, center, center);
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        background-color: var(--color-white);
+        transform: translatex(27px) rotateY(42deg);
+        box-shadow: 15px 17px 40px -10px rgba(0, 0, 0, 0.2);
+      }
+      &_title {
+        width: 100%;
+        @include v.flex-column(md, center, center);
+        background-color: var(--color-black);
+        border-radius: 2px;
+        @include v.typography-style(sm, main, color-white);
+        @media (max-width: v.$width-sm) {
+           @include v.typography-style(xs, main, color-white);
+        }
+      }
+      &_description {
+        @include v.typography-style(xxs, main, );
       }
     }
   }

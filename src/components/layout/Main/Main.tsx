@@ -22,7 +22,7 @@ const Main = () => {
       <WhyChooseUs />
       <CourseType />
       <OurInstructure />
-      {/* <Curriculum /> */}
+      <Curriculum />
       <Plans />
     </div>
   );
