@@ -1,8 +1,8 @@
 import { memo } from "react";
 import Service from "./section-1/Service.tsx";
 import AboutUs from "./section-2/About-us.tsx";
-import Curriculum from "./section-7/Curriculum.tsx";
-import Plans from "./section-8/Plans.tsx";
+import Curriculum from "./section-8/Curriculum.tsx";
+import Plans from "./section-7/Plans.tsx";
 import OurCourses from "./section-3/OurCourses.tsx";
 import WhyChooseUs from "./section-4/WhyChooseUs.tsx";
 import CourseType from "./section-5/CourseType.tsx";
@@ -22,7 +22,7 @@ const Main = () => {
       <WhyChooseUs />
       <CourseType />
       <OurInstructure />
-      <Curriculum />
+      {/* <Curriculum /> */}
       <Plans />
     </div>
   );

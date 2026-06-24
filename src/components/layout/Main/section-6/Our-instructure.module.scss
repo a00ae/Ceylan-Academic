@@ -1,7 +1,7 @@
 @use "../../../../styles/variables" as v;
 
 .our-instructure {
-  @include v.container-padding-box(color-white);
+  @include v.container-padding-box;
   &_container {
     @include v.flex-column(xl);
   }

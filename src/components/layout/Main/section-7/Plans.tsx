@@ -8,7 +8,7 @@ import styles from "./Plans.module.scss";
 import { RiCheckboxCircleLine } from "@remixicon/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Plans = () => {
-  const [containerRef, isVisible] = useScrollAnimation(0.1); // نستخرج كائن الـ plans المباشر
+  const [containerRef, isVisible] = useScrollAnimation(); // نستخرج كائن الـ plans المباشر
   const { plans } = pageData;
   const [checkedPlans, setCheckedPlans] = useState<Record<string, boolean>>({});
 
@@ -22,16 +22,12 @@ const Plans = () => {
   return (
     <section className={styles.plans}>
       <div
-        // ref={containerRef}
-        className={`${styles["plans_container"]} ${isVisible ? styles.visible : ""}`}>
-        {/* نمرر الكائن مباشرة بدون map */}
-        <Box {...plans} />
-
-        <Heading isAnimation={true} {...plans} animate={isVisible} />
-
-        <div
         ref={containerRef}
-          className={`${styles["plans_card"]} ${isVisible ? styles.visible : ""}`}>
+        className={`${styles["plans_container"]} ${isVisible ? styles.visible : ""}`}>
+        <Box {...plans} />
+        <Heading {...plans} />
+        <div
+          className={`${styles["plans_card"]}`}>
           {DataPlans.map(
             ({ id, type, name, price, discount, desc, features, currency }) => {
               const isYearly = !!checkedPlans[name];
@@ -40,7 +36,6 @@ const Plans = () => {
                   key={id}
                   className={`${styles["price-card"]} ${styles[type.toLowerCase()]}`}>
                   <div className={styles.top}>
-                    {/* title */}
                     <div className={styles.title}>
                       <div className={styles["title_right"]}>
                         <span data-plans>{name}</span>

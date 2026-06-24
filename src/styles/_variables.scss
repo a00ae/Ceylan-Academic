@@ -143,8 +143,9 @@ $width-xxl: 1400px;
   transform: translateY($transform);
   opacity: 0;
   transition:
-    transform 0.8s ease-in,
+    transform 0.8s ease,
     opacity var(--transition-main);
+  // will-change: transform, opacity;
   &.visible {
     opacity: 1;
     transform: translateY(0);

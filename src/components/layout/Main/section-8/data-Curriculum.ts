@@ -16,7 +16,7 @@ export const DATA_CURRICULUM: DataCurriculum[] = [
   },
   {
     type: "English",
-    bookTitle: "Miftah Al-Arabiyya",
+    bookTitle: "Oxford Müfredatı",
     bookDescription:
       '"Arapçanın Anahtarı" serisi, hem gençleri hem de yetişkinleri hedefleyen, anadili Arapça olmayanlara Arapça öğretmek için entegre bir müfredattır.',
     level:

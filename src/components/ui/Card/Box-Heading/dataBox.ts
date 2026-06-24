@@ -8,9 +8,9 @@ export interface BoxItemType {
   title: string;
   desc?: string;
   heading?: string;
-  animate?: boolean;
-  isAnimation?: boolean; 
+  isAnimation?: boolean;
   titleDescription?: string;
+  headingGreyColor?: string[]; 
   card?: PlansCard[]; // تركتها مصفوفة هنا لأن الكرت نفسه قد يحتوي على عدة أسعار بالداخل
 }
 
@@ -31,8 +31,7 @@ export const pageData: FullPageDataType = {
     title: "About us",
     desc: "@Hakkımızda",
     heading: "Ceylan, öğrencileri arasında iyi bir üne sahip",
-    animate: true,
-    isAnimation: true
+    isAnimation: true,
   },
   ourCourses: {
     id: 2,
@@ -43,14 +42,12 @@ export const pageData: FullPageDataType = {
     id: 3,
     title: "Neden bizi seçmelisiniz",
     heading: "Kursumuzun öğrenciler için avantajları",
-    animate: true,
-    isAnimation: true
+    // isAnimation: true,
   },
   courseType: {
     id: 4,
     title: "Ders türü",
     heading: "Çeşitli kurslar sunuyoruz.",
-    animate: true, 
     isAnimation: true,
   },
 
@@ -59,23 +56,22 @@ export const pageData: FullPageDataType = {
     title: "Eğitimimiz",
     desc: "@Fırsatı değerlendirin",
     heading: "Profesyonel Öğretmenlerimizle Tanışın",
-    animate: true,
+  },
+  plans: {
+    id: 6,
+    title: "Planlar ve fiyatlar",
+    desc: "@2026 - Sınırlı özellikler",
+    heading: 
+    "Akademimizde sunulan dillere bağlı olarak programlar ve fiyatlar değişiklik göstermektedir",
     isAnimation: true,
-
+    headingGreyColor: ["programlar", "ve", "fiyatlar", "değişiklik", "göstermektedir"]
   },
 
   curriculum: {
-    id: 6,
+    id: 7,
     title: "Müfredat",
     desc: "@2026",
     heading: "Öğretmenlerimiz tarafından öğretilen müfredat",
     isAnimation: true,
-    animate: true,
-  },
-  plans: {
-    id: 7,
-    title: "Planlar",
-    desc: "@2026 - Sınırlı özellikler",
-    heading: "Mevcut Diller",
   },
 };
