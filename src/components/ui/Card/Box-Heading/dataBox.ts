@@ -59,8 +59,8 @@ export const pageData: FullPageDataType = {
   },
   plans: {
     id: 6,
-    title: "Planlar ve fiyatlar",
-    desc: "@2026 - Sınırlı özellikler",
+    title: "Planlar",
+    desc: "@Sınırlı özellikler",
     heading: 
     "Akademimizde sunulan dillere bağlı olarak programlar ve fiyatlar değişiklik göstermektedir",
     isAnimation: true,

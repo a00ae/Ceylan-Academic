@@ -37,25 +37,45 @@
         @include v.flex-column(sm);
 
         .title {
-          @include v.flex-row(space-between);
+          @include v.flex-row(space-between, center, md);
           &_right {
             // @include v.typography-style(md, bold, text-color);
+            text-transform: capitalize;
             @include v.flex-row(start, center, xxs);
             span[data-plans] {
               @include v.typography-style(md, bold, text-color);
-              text-transform: capitalize;
             }
             span[data-break] {
               @include v.typography-style(md, bold, btn-color);
             }
-            span {
+            .data-popular {
+              display: block;
               @include v.typography-style(md, bold, text-color-grey);
+              position: relative;
+              backface-visibility: hidden;
+              transition: transform var(--transition-main);
+              transform: translateY(0);
+
+              &::before {
+                content: attr(data-popular);
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 100%
+              }
+
+              &.active {
+                transform: translateY(-100%);
+              }
             }
           }
 
           &_left {
             .check-box {
-              @include v.flex-row(center, center, sm);
+              @include v.flex-row($justify: center, $gap: sm);
+              @media (max-width: v.$width-sm) {
+                @include v.flex-row($gap: xs);
+              }
 
               .switch {
                 position: relative;
@@ -174,16 +194,16 @@
         }
 
         .features {
-          @include v.flex-column(sm);
+          @include v.flex-column(xs);
 
           .features-card {
-            @include v.flex-row(flex-start, center, xs);
+            @include v.flex-row(flex-start, center, xxs);
 
             svg {
               @include v.typography-style(sm, main, color-primary);
             }
             p {
-              @include v.typography-style(xs, main, text-color);
+              @include v.typography-style(sm, main, text-color);
             }
           }
         }

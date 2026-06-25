@@ -108,7 +108,7 @@ $btn-themes: (
 
   &:hover {
     .first .data-title {
-      transform: translateY(-100%);
+      transform: translateY(-110%);
     }
 
     svg {
@@ -167,7 +167,8 @@ $btn-themes: (
   }
   &.medium {
     padding: 4px 4px;
-    font-size: 16px;
+    font-size: var(--font-size-sm);
+    text-shadow: 0px 1px rgba(0 0 0 / 0.05);
   }
   &.large {
     padding: 12px 12px;

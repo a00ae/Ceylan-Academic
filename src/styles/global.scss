@@ -27,11 +27,12 @@ body {
   // overflow: hidden;
   font-family: Inter, "IBM Plex Sans Arabic", sans-serif;
   background-color: var(--bg-color-default);
+  overflow-x: hidden;
 }
 #root {
   position: relative;
   width: 100%;
-  overflow-x: hidden;
+  
 }
 
 .loader {

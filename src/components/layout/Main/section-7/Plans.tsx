@@ -26,8 +26,7 @@ const Plans = () => {
         className={`${styles["plans_container"]} ${isVisible ? styles.visible : ""}`}>
         <Box {...plans} />
         <Heading {...plans} />
-        <div
-          className={`${styles["plans_card"]}`}>
+        <div className={`${styles["plans_card"]}`}>
           {DataPlans.map(
             ({ id, type, name, price, discount, desc, features, currency }) => {
               const isYearly = !!checkedPlans[name];
@@ -39,12 +38,19 @@ const Plans = () => {
                     <div className={styles.title}>
                       <div className={styles["title_right"]}>
                         <span data-plans>{name}</span>
-                        {type == "Premium" && (
-                          <>
-                            <span data-break>|</span>
-                            <span data-popular>popüler</span>
-                          </>
-                        )}
+                        {/* {type == "Premium" && ( */}
+                        <>
+                          <span data-break>|</span>
+                          <div
+                            style={{                           
+                              overflow: "hidden",
+                            }}>
+                              <span className={`${styles["data-popular"]} ${isYearly ? styles.active : ""}`}
+                                data-popular="Grup">
+                                öznel
+                              </span>
+                          </div>
+                        </>
                       </div>
 
                       <div className={styles["title_left"]}>

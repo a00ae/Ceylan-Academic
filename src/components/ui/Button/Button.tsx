@@ -17,8 +17,10 @@ const Button: React.FC<ButtonProps> = ({
   const buttonClass = `${styles.btn} ${styles[variant]} ${styles[size]} ${className}`;
   return (
     <a className={buttonClass} {...props}>
-      <div className={styles.first}>
-        <span className={styles["data-title"]} data-title={children}>
+      <div style={{
+        paddingLeft:arrow ? "10px" : 0,
+      }} className={styles.first}>
+        <span  className={`${styles["data-title"]}`} data-title={children}>
           {children}
         </span>
       </div>
