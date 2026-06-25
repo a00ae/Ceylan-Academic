@@ -140,6 +140,9 @@
 
               & p {
                 @include v.typography-style(sm, main, text-color-grey);
+                @media (max-width: v.$width-sm) {
+                  display: none;
+                }
               }
             }
           }
