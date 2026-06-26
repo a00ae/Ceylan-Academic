@@ -1,6 +1,6 @@
 @use "../../../../styles/variables" as v;
 
-$img-bg: "src/assets/our-instructure/contact-us.avif";
+$img-bg: "../../../../assets/our-instructure/contact-us.avif";
 
 .contact-us {
   @include v.container-padding-box;
