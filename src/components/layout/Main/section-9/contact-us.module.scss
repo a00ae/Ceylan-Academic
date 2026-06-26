@@ -11,7 +11,7 @@ $img-bg: "../../../../assets/our-instructure/contact-us.avif";
   background-position: center; // لتوسيط الصورة
 
   &_container {
-
+    @include v.animation-main;
     --bg-color-input: #ffffff54;
     --border-radius-input-box: 25px;
     --bg-color-foces: #ffffff8f;
@@ -20,7 +20,7 @@ $img-bg: "../../../../assets/our-instructure/contact-us.avif";
     @media (max-width: v.$width-sm) {
         width: 100%;
     }
-    h2 {
+    .heading {
         @include v.typography-style(xl, bold, color-white);
         @include v.flex-row(center, center, xxs);
         flex-wrap: wrap;
@@ -28,6 +28,18 @@ $img-bg: "../../../../assets/our-instructure/contact-us.avif";
         @media (max-width: v.$width-sm) {
             @include v.typography-style(lg, bold, color-white);
         }
+        // opacity: 0;
+        filter: blur(5px);
+        transform: translateY(50px);
+        transition: filter 0.9s, transform 0.4s;
+
+        &.visible {
+            // opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+
 
     }
     .box-email{
