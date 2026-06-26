@@ -1,0 +1,58 @@
+@use "../../../../styles/variables" as v;
+
+$img-bg: "src/assets/our-instructure/contact-us.avif";
+
+.contact-us {
+  @include v.container-padding-box;
+  @include v.flex-row(center, center);
+  height: 680px;
+  background-image: url(#{$img-bg});
+  background-size: cover; // لجعل الصورة تغطي العنصر بالكامل
+  background-position: center; // لتوسيط الصورة
+
+  &_container {
+
+    --bg-color-input: #ffffff54;
+    --border-radius-input-box: 25px;
+    --bg-color-foces: #ffffff8f;
+    @include v.flex-column(sm);
+    width: 40%;
+    @media (max-width: v.$width-sm) {
+        width: 100%;
+    }
+    h2 {
+        @include v.typography-style(xl, bold, color-white);
+        text-align: center;
+        @media (max-width: v.$width-sm) {
+            @include v.typography-style(lg, bold, color-white);
+        }
+
+    }
+    .box-email{
+        @include v.flex-row(center, stretch, xs);
+        .input-box {
+            border: 1px solid var(--color-white);
+            background-color: var(--bg-color-input);
+            border-radius: var(--border-radius-input-box);
+            flex: 1;
+            padding: var(--space-xs) var(--space-sm);
+            transition: background-color var(--transition-main);
+            
+            input {
+                width: 100%;
+                outline: none;
+                background-color: transparent;
+                border: none;
+                @include v.typography-style(sm, main);
+                &::placeholder {
+                     @include v.typography-style(sm, main, color-white);
+                }
+            }
+
+            &:focus-within {
+                background-color: var(--bg-color-foces);
+            }
+        }
+    }
+  }
+}

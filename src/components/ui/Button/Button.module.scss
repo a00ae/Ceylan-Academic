@@ -62,6 +62,16 @@ $btn-themes: (
     bg-icon: var(--heading-color),
     color-icon: var(--color-white),
   ),
+  "white": (
+  bg: var(--color-white),
+    color: var(--color-black),
+    border: var(--color-white),
+    hover-bg: var(--color-black),
+    hover-border: var(--color-black),
+    hover-color: var(--color-white),
+    // bg-icon: var(--heading-color),
+    // color-icon: var(--color-white),
+  ),
 );
 
 // 2. الكلاس الأساسي للزر
@@ -83,7 +93,7 @@ $btn-themes: (
       transition: transform var(--transition-main);
       background-color: inherit;
       backface-visibility: hidden;
-      transform: translateY(0);
+      transform:  translateY(0);
 
       &::before {
         content: attr(data-title);
@@ -108,7 +118,7 @@ $btn-themes: (
 
   &:hover {
     .first .data-title {
-      transform: translateY(-110%);
+      transform: translateY(-100%);
     }
 
     svg {

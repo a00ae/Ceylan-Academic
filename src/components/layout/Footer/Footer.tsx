@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
           {/* right Bottom Social */}
           <div className={styles["bottom-socil-media"]}>
-            <span className={styles["title"]}>Socil Media</span>
+            <span className={styles["title"]}>Bizi takip edin</span>
             <ul className={styles["icons"]}>
               {socilElemnt.map((ele, i) => (
                 <li key={i}>{ele}</li>

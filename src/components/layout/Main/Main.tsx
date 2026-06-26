@@ -7,6 +7,7 @@ import OurCourses from "./section-3/OurCourses.tsx";
 import WhyChooseUs from "./section-4/WhyChooseUs.tsx";
 import CourseType from "./section-5/CourseType.tsx";
 import OurInstructure from "./section-6/OurInstructure.tsx";
+import Contactus from "./section-9/Contactus.tsx";
 
 const Main = () => {
   return (
@@ -24,6 +25,7 @@ const Main = () => {
       <OurInstructure />
       {/* <Curriculum /> */}
       <Plans />
+      <Contactus />
     </div>
   );
 };
