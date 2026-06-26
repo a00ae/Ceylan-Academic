@@ -5,7 +5,7 @@ import Loader from "./components/ui/Loader/Loader";
 import Footer from "./components/layout/Footer/Footer";
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   // const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
