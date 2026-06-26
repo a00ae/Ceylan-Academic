@@ -22,7 +22,7 @@
 
     .card-img {
       width: 100%;
-      height: 350px;
+      height: 380px;
       overflow: hidden;
       position: relative;
       img {
@@ -34,7 +34,8 @@
       }
       &.item-1 {
         order: 1;
-        background-color: purple;
+        background-color: #e8eaf6
+;
         // filter: blur(3px);
       }
       &.item-3 {
