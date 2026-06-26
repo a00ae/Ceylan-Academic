@@ -22,6 +22,8 @@ $img-bg: "src/assets/our-instructure/contact-us.avif";
     }
     h2 {
         @include v.typography-style(xl, bold, color-white);
+        @include v.flex-row(center, center, xxs);
+        flex-wrap: wrap;
         text-align: center;
         @media (max-width: v.$width-sm) {
             @include v.typography-style(lg, bold, color-white);

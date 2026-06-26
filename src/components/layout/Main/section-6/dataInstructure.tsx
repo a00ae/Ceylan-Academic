@@ -15,7 +15,7 @@ export const dataInstucture: DataInstucture[] = [
     {
         id: 1,
         type:"img",
-        img: instructureImages[3],
+        img: instructureImages[0],
     },
     {
         id: 2,
