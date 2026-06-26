@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/layout/Header/Header";
 import Main from "./components/layout/Main/Main";
 import Loader from "./components/ui/Loader/Loader";
+import Footer from "./components/layout/Footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -35,6 +36,7 @@ function App() {
       <Loader loading={loading} />
       <Header />
       <Main />
+      <Footer />
     </>
   );
 }

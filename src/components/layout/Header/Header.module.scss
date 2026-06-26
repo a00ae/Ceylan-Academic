@@ -21,7 +21,8 @@
     cursor: pointer;
 
     .main-logo {
-      @include v.typography-style(lg, bold, heading-color)
+      @include v.typography-style(lg, bold, heading-color);
+      user-select: none;
 
     }
   }

@@ -8,7 +8,8 @@
       {
         "ignore": [
           "color: map-get($colors, color)",
-          "d"
+          "d",
+          "user-select"
         ]
       }
     ]

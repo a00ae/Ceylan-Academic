@@ -4,8 +4,11 @@ import styles from "./Header.module.scss";
 // import CeylanLogo from "../../../assets/logo/Ceylan-Language-Academi-Logo.svg?react";
 import Button from "../../ui/Button/Button";
 import LesilingoLogo from "./LesilingoLogo";
+import { mainListName } from ".";
 
-const header: string[] = ["ana sayfa", "Planlar", "içerik", "Hakkımızda"];
+
+
+
 
 const Header = () => {
   return (
@@ -16,7 +19,7 @@ const Header = () => {
         {/* <CeylanLogo className={styles.mainLogo} title="Ceylan Logo" /> */}
       </nav>
       <ul className={styles["header_nav"]}>
-        {header.map((ele) => (
+        {mainListName.map((ele) => (
           <li key={ele}>
             <a data-element={ele} href={`#${ele}`}>
               <span>{ele}</span>

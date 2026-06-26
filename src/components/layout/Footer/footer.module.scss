@@ -1,0 +1,123 @@
+@use "../../../styles/variables" as v;
+
+$footer-transition: opacity 0.6s, transform 0.8s;
+.footer {
+  @include v.container-padding-box;
+  &_container {
+    --opacity-timer: opacity 0.6s;
+    @include v.flex-row(space-between, stretch, md);
+    transition: $footer-transition;
+    opacity: 0;
+    transform: translateY(100px);
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  &_side-left {
+    @include v.flex-column(lg);
+    width: 40%;
+    opacity: 0;
+    overflow: hidden;
+    transition: $footer-transition;
+    transform: translateX(-200px);
+    &.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    @media (max-width: v.$width-xl) {
+      width: 100%;
+    }
+
+    // top
+    .logo-top {
+      @include v.flex-column(sm);
+      .logo {
+        @include v.flex-row(flex-start, center, xxs);
+        .main-logo {
+          @include v.typography-style(lg, bold, heading-color);
+          font-family: "Cinzel", serif;
+          user-select: none;
+        }
+      }
+      .description {
+        width: 60%;
+        @include v.typography-style(sm, main, text-color-grey);
+        @media (max-width: v.$width-xl) {
+          width: 100%;
+        }
+      }
+    }
+    // bottom
+    .media-bottom {
+      @include v.flex-column(xs);
+      .box-mail {
+        overflow: hidden;
+        .addess {
+          @include v.flex-row(flex-start, center, xs);
+          @include v.typography-style(sm, main, text-color-grey);
+          position: relative;
+          
+        }
+      }
+    }
+  }
+
+  &_side-right {
+    width: 50%;
+    @include v.flex-column(lg);
+    .top-mune {
+      @include v.grid-main(200px);
+      ul {
+        @include v.flex-column(xs);
+        text-transform: capitalize;
+        li[data-title] {
+          @include v.typography-style(md, main);
+          margin-bottom: 20px;
+        }
+        li[data-item] {
+          @include v.typography-style(xs, main, text-color-grey);
+          overflow: hidden;
+          span {
+            text-transform: capitalize;
+            position: relative;
+            cursor: pointer;
+            transition: transform var(--transition-main);
+            transform: translateY(0);
+            display: inline-block;
+            &::before {
+              content: attr(data-span-item);
+              position: absolute;
+              width: 100%;
+              top: 100%;
+              left: 0;
+              color: var(--btn-color);
+            }
+  
+            &:hover {
+              transform: translateY(-100%);
+            }
+          }
+        }
+      }
+    }
+    .bottom-socil-media {
+        @include v.flex-column(sm);
+        .title {
+             @include v.typography-style(md, main);
+             text-transform: capitalize;
+        }
+        .icons {
+            @include v.flex-row(flex-start, center, xs);
+            li {
+                cursor: pointer;
+                color: var(--text-color-grey);
+                transition: color var(--transition-main);
+                &:hover {
+                    color: var(--btn-color);
+                }
+            }
+        }
+    }
+  }
+}
