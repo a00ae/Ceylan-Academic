@@ -27,7 +27,6 @@ const Contactus = (props: Props) => {
               borderRadius: "calc(var(--border-radius-input-box) - 5px)",
             }}
             variant="white">
-            {" "}
             Gönder
           </Button>
         </div>
