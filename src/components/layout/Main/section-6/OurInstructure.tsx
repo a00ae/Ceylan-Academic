@@ -24,14 +24,12 @@ const OurInstructure = (props: Props) => {
           <Heading {...ourInstructure} />
         </div>
         <div ref={ref} className={styles["our-instructure_education"]}>
-          {dataInstucture.map((card) => {
-            const className: string =
-              card.type == "text" && card.descraption
-                ? styles[card.descraption.toLowerCase().split(" ").join("_")]
-                : "";
+          {dataInstucture.map((card,) => {
+              
             return (
               <div
-                className={`${styles[`card-${card.type}`]} ${className}`}>
+              key={card.id}
+                className={`${styles[`card-${card.type}`]} ${styles[`item-${card.id}`]}`}>
                 {card.type == "img" && (
                   <img src={card.img} alt={card.descraption} />
                 )}

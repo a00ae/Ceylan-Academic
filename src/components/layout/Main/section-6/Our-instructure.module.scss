@@ -18,6 +18,8 @@
       border-radius: var(--border-radius-lg);
       @include v.animation-card;
     }
+
+
     .card-img {
       width: 100%;
       height: 350px;
@@ -30,7 +32,25 @@
         position: absolute;
         top: 0;
       }
+      &.item-1 {
+        order: 1;
+        background-color: purple;
+        // filter: blur(3px);
+      }
+      &.item-3 {
+        order: 5;
+        
+      }
+      &.item-5 {
+        order: 3;
+
+      }
+
+
+
     }
+
+
     .card-text {
       padding: var(--space-lg);
       background-color: var(--bg-color-default);
@@ -48,6 +68,27 @@
       span {
         @include v.typography-style(sm, main, text-color-grey);
         text-shadow: 2px 0px 1px rgba(135, 121, 121, 0.2);
+      }
+      &.item-2 {
+        order: 4;
+        @media (max-width: v.$width-xl) {
+          order: 4;
+        }
+        @media (max-width: v.$width-md) {
+          order: 2;
+        }
+      }
+      &.item-4 {
+        order: 2;
+        @media (max-width: v.$width-xl) {
+          order: 2;
+        }
+        @media (max-width: v.$width-md) {
+          order: 4;
+        }
+      }
+      &.item-6 {
+        order: 6;
       }
     }
   }
