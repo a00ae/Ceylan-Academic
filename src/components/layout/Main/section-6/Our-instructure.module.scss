@@ -40,8 +40,8 @@
       &::before {
         content: attr(data-title);
         position: absolute;
-        bottom:20px;
-        right: 20px;
+        bottom:25px;
+        right: 25px;
         font-family: "Carter One", system-ui;
         @include v.typography-style(md, main, color-white);
         z-index: 1;
@@ -57,7 +57,7 @@
 
         }
         &::before {
-          transform: scale(1.1);
+          transform: scale(1.2);
         }
       }
       
