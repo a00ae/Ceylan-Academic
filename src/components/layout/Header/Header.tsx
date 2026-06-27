@@ -19,8 +19,8 @@ const Header = () => {
         {/* <CeylanLogo className={styles.mainLogo} title="Ceylan Logo" /> */}
       </nav>
       <ul className={styles["header_nav"]}>
-        {mainListName.map((ele) => (
-          <li key={ele}>
+        {mainListName.map((ele, i) => (
+          <li key={i}>
             <a data-element={ele} href={`#${ele}`}>
               <span>{ele}</span>
             </a>

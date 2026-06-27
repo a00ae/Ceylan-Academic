@@ -13,8 +13,8 @@ const Contactus = (props: Props) => {
         className={`${styles["contact-us_container"]} ${isVisible ? styles.visible : ""}`}>
         <h2
           className={`${styles["heading"]} ${isVisible ? styles.visible : ""}`}>
-          {"Bizden En Son Bilgilerle Güncel Kalın!".split(" ").map((ele) => (
-            <span>{ele}</span>
+          {"Bizden En Son Bilgilerle Güncel Kalın!".split(" ").map((ele, i) => (
+            <span key={i}>{ele}</span>
           ))}
         </h2>
         <div className={styles["box-email"]}>

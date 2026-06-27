@@ -57,8 +57,8 @@ const Footer = () => {
           </div>
           {/* bottom */}
           <div className={styles["media-bottom"]}>
-            {emailAddress.map(({ city, svg }) => (
-                <div key={city} className={styles["box-mail"]}>
+            {emailAddress.map(({ city, svg }, index) => (
+                <div key={index} className={styles["box-mail"]}>
               <div className={styles["addess"]}>
                 {svg}
                 <div className={styles["mail"]}>{city}</div>
@@ -74,8 +74,8 @@ const Footer = () => {
             {moreInformation.map((item) => (
               <ul key={item.titleName}>
                 <li data-title>{item.titleName}</li>
-                {item.muneName.map((ele) => (
-                  <li data-item key={ele}>
+                {item.muneName.map((ele, i) => (
+                  <li data-item key={i}>
                     <span data-span-item={ele}>
                       {ele !== "ana sayfa" ? ele : "Ana sayfa"}
                     </span>
