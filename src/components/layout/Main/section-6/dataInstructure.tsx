@@ -16,6 +16,7 @@ export const dataInstucture: DataInstucture[] = [
         id: 1,
         type:"img",
         img: instructureImages[0],
+        descraption: "Arapça"
     },
     {
         id: 2,
@@ -28,6 +29,7 @@ export const dataInstucture: DataInstucture[] = [
         id: 3,
         type:"img",
         img: instructureImages[1],
+        descraption: "İngilizce"
     },
     {
         id: 4,
@@ -40,6 +42,7 @@ export const dataInstucture: DataInstucture[] = [
         id: 5,
         type: "img",
         img: instructureImages[2],
+        descraption: "Fransızca"
     },
     {
         id: 6,

@@ -25,10 +25,12 @@ const OurInstructure = (props: Props) => {
         </div>
         <div ref={ref} className={styles["our-instructure_education"]}>
           {dataInstucture.map((card,) => {
+            const language = card.type == "img"  ? card?.descraption : ""
               
             return (
               <div
               key={card.id}
+              data-title={language}
                 className={`${styles[`card-${card.type}`]} ${styles[`item-${card.id}`]}`}>
                 {card.type == "img" && (
                   <img src={card.img} alt={card.descraption} />
