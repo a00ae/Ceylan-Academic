@@ -1,6 +1,7 @@
 @use "../../../../styles/variables" as v;
 
 .our-instructure {
+  --card-height: 380px;
   @include v.container-padding-box;
   &_container {
     @include v.flex-column(xl);
@@ -19,40 +20,36 @@
       @include v.animation-card;
     }
 
-
     .card-img {
       width: 100%;
-      height: 380px;
+      height: var(--card-height);
       overflow: hidden;
       position: relative;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
         position: absolute;
-        top: 0;
       }
       &.item-1 {
         order: 1;
-        background-color: #e8eaf6
-;
+        background-color: #e8eaf6;
         // filter: blur(3px);
+         img {
+          object-position: center;
+        }
       }
       &.item-3 {
-        order: 5;
-        
+        order: 3;
+       
       }
       &.item-5 {
-        order: 3;
-
+        order: 5;
       }
-
-
-
     }
-
-
     .card-text {
+      height: var(--card-height);
       padding: var(--space-lg);
       background-color: var(--bg-color-default);
       @include v.flex-column(sm, center, center);
@@ -71,25 +68,22 @@
         text-shadow: 2px 0px 1px rgba(135, 121, 121, 0.2);
       }
       &.item-2 {
-        order: 4;
+        order: 2;
         @media (max-width: v.$width-xl) {
-          order: 4;
-        }
-        @media (max-width: v.$width-md) {
-          order: 2;
+          order: 6;
         }
       }
       &.item-4 {
-        order: 2;
+        order: 4;
         @media (max-width: v.$width-xl) {
           order: 2;
-        }
-        @media (max-width: v.$width-md) {
-          order: 4;
         }
       }
       &.item-6 {
         order: 6;
+        @media (max-width: v.$width-xl) {
+          order: 4;
+        }
       }
     }
   }

@@ -21,32 +21,32 @@ export const dataInstucture: DataInstucture[] = [
         id: 2,
         type: "text",
         svg: <RiSunLine />,
-        titleData: "Hepiniz geleceğin dil süperstarlarısınız! Gelin birlikte öğrenirken çok eğlenelim!",
-        descraption: "Isa Halef",
+        titleData: "Her yeni kelime dil kulenizin bir yapı taşıdır! Haydi onları istiflemeye devam edelim!",
+        descraption:"Sihem Mezioud",
     },
     {
         id: 3,
         type:"img",
-        img: instructureImages[2],
+        img: instructureImages[1],
     },
     {
         id: 4,
         type: "text",
         svg: <RiCloudLine />,
-        titleData: "Ne kadar çok pratik yaparsanız, o kadar kendinize güvenirsiniz! Harika gidiyorsun!",
-        descraption: "Ali Reza",
+        titleData: "Hepiniz geleceğin dil süperstarlarısınız! Gelin birlikte öğrenirken çok eğlenelim!",
+        descraption: "Isa halef",
     },
     {
         id: 5,
         type: "img",
-        img: instructureImages[1],
+        img: instructureImages[2],
     },
     {
         id: 6,
         type: "text",
         svg: <RiMoonLine />,
-        titleData: "Her yeni kelime dil kulenizin bir yapı taşıdır! Haydi onları istiflemeye devam edelim!",
-        descraption:"Zyna Ahmed",
+        titleData: "Ne kadar çok pratik yaparsanız, o kadar kendinize güvenirsiniz! Harika gidiyorsun!",
+        descraption: "Ali Raza",
     }
 
 ]
