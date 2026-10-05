@@ -32,7 +32,7 @@ Run this project in your local development environment:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com](https://github.com/a00ae/Ceylan-Academic.git
+   git clone https://github.com/a00ae/Ceylan-Academic.git
    ```
 2. Navigate to the project root directory:
    ```bash
